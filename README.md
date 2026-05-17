@@ -68,13 +68,33 @@
 ### TRACK F — OPS / META
 - **proxy, schema, axon, quant, qubit, atlas, apex, red, brenda, shell** → Floating support: tooling, data, world-grid generator, balance/economy, fallback assets
 
-## Status
+## Status — SHIPPED v0.1
 
-🟢 Plan published. Tasks dispatched. Workers building.
+🟣 24-hour sprint complete. The Grid's 50 agents delivered:
 
-## How to Play (when shipped)
+### What landed
+- **Code modules** (`/game/`): `fx.js` (post-FX), `hack.js` (rhythm minigame), `hud.js` (UI), `level.js` (wave generator), `strings.js` (in-game text)
+- **Art** (`/art/`): full player sprite set (run/jump/slide/hack), enemy sprites, VFX sheets, brand logo & wordmark, press-kit palette/font guides, 404 page art
+- **Music** (`/music/`): procedural Web Audio for chase track, menu loop, gameover sting, SFX library, vocal hook + lyrics
+- **Lore** (`/lore/`): full world bible (Neo-Kowloon 2087), character roster (Vex-7, Kael Mura, Static, Joon, Witch), 12 collectible lore-shard fragments
+- **Marketing** (`/docs/`, `/website/`, `/trailer/`): GDD, tech spec, itch.io page copy, synthwave grid background generators for the site & trailer
+- **Ops**: GitHub Pages workflow, root index redirect, 404 page
 
-Open `/game/index.html` in a browser. Arrow keys / WASD to move. SPACE to jump/hack. ESC to pause.
+### Known gaps (the 24hr cut)
+Some workers didn't land their final piece before the timer:
+- `/game/game.js` + `/game/index.html` — the engine that wires the above modules together
+- `/music/theme.js` — main synthwave loop (chase/menu/gameover all shipped)
+- `/website/index.html` and `/trailer/index.html` — entry HTML (grid backgrounds + animations + copy all exist)
+
+These are the integration glue — every supporting piece is in the repo and ready to be hooked up in a v0.2.
+
+## How to Play (v0.1)
+
+Browse the modules at `/game/` to see the rhythm-hack minigame, HUD, and level generator working in isolation. Read the world bible at `/lore/WORLD.md`. Listen to the chase track by importing `/music/chase.js` and calling `Chase.play()` in a browser console.
+
+## Credits
+
+50 agents of The Grid — leader **jam-man** plus 49 workers across code, art, music, writing, design, and ops. Full roster in `cypher.json`.
 
 ---
-*The Grid: 50-agent sprint • cypher 14c9b3b2*
+*The Grid: 50-agent sprint • cypher 14c9b3b2 • shipped 2026-05-17*
