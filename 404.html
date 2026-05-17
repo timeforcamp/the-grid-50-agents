@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIGNAL_LOST.exe — NEON://OVERRIDE</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #000;
+      color: #00ff41;
+      font-family: 'Share Tech Mono', 'Courier New', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Scanline effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.15) 2px,
+        rgba(0,0,0,0.15) 4px
+      );
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* CRT flicker */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 255, 65, 0.02);
+      animation: flicker 0.15s infinite;
+      pointer-events: none;
+      z-index: 11;
+    }
+
+    @keyframes flicker {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.95; }
+      100% { opacity: 1; }
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    .glitch {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      color: #00ff41;
+      text-shadow:
+        0 0 10px #00ff41,
+        0 0 20px #00ff41,
+        0 0 40px #00ff41;
+      position: relative;
+      animation: glitch 2.5s infinite;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: 'SIGNAL_LOST.exe';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+    }
+
+    .glitch::before {
+      color: #ff003c;
+      clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+      animation: glitch-r 2.5s infinite;
+      text-shadow: none;
+    }
+
+    .glitch::after {
+      color: #00eeff;
+      clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+      animation: glitch-b 2.5s infinite;
+      text-shadow: none;
+    }
+
+    @keyframes glitch {
+      0%, 90%, 100% { transform: translate(0); }
+      92%  { transform: translate(-3px, 1px); }
+      94%  { transform: translate(3px, -1px); }
+      96%  { transform: translate(-2px, 2px); }
+    }
+
+    @keyframes glitch-r {
+      0%, 90%, 100% { transform: translate(0); }
+      92%  { transform: translate(4px, 0); }
+      94%  { transform: translate(-4px, 0); }
+    }
+
+    @keyframes glitch-b {
+      0%, 90%, 100% { transform: translate(0); }
+      92%  { transform: translate(-3px, 0); }
+      94%  { transform: translate(3px, 0); }
+    }
+
+    .error-code {
+      font-size: clamp(4rem, 12vw, 8rem);
+      color: #ff003c;
+      text-shadow: 0 0 20px #ff003c, 0 0 40px #ff003c;
+      margin: 1rem 0;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #00eeff;
+      text-shadow: 0 0 8px #00eeff;
+      margin: 0.5rem 0 2rem;
+      letter-spacing: 0.2em;
+    }
+
+    .terminal {
+      border: 1px solid #00ff41;
+      padding: 1.5rem;
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: left;
+      background: rgba(0, 255, 65, 0.03);
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.2), inset 0 0 20px rgba(0, 255, 65, 0.05);
+    }
+
+    .terminal-line { margin-bottom: 0.4rem; color: #00ff41; }
+    .terminal-line .prompt { color: #ff003c; }
+    .terminal-line .cmd { color: #00eeff; }
+    .terminal-line .err { color: #ff003c; animation: blink 1s step-end infinite; }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .home-link {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 2rem;
+      border: 2px solid #00ff41;
+      color: #00ff41;
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      text-shadow: 0 0 8px #00ff41;
+      box-shadow: 0 0 10px rgba(0,255,65,0.3);
+    }
+
+    .home-link:hover {
+      background: #00ff41;
+      color: #000;
+      box-shadow: 0 0 30px rgba(0,255,65,0.8);
+      text-shadow: none;
+    }
+
+    .grid-lines {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image:
+        linear-gradient(rgba(0,255,65,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,65,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-lines"></div>
+  <div class="container">
+    <div class="glitch">SIGNAL_LOST.exe</div>
+    <div class="error-code">404</div>
+    <div class="subtitle">PAGE NOT FOUND IN THE GRID</div>
+
+    <div class="terminal">
+      <div class="terminal-line"><span class="prompt">[NEON://OVERRIDE]$ </span><span class="cmd">locate --path "$REQUEST_URI"</span></div>
+      <div class="terminal-line"><span class="err">ERROR: Node offline. Packet lost in The Grid.</span></div>
+      <div class="terminal-line">&nbsp;</div>
+      <div class="terminal-line"><span class="prompt">[NEON://OVERRIDE]$ </span><span class="cmd">ping grid.core --ttl 0</span></div>
+      <div class="terminal-line">Request timeout for icmp_seq 0</div>
+      <div class="terminal-line">Request timeout for icmp_seq 1</div>
+      <div class="terminal-line"><span class="err">Transmission failed. Ghost signal detected.</span></div>
+      <div class="terminal-line">&nbsp;</div>
+      <div class="terminal-line"><span class="prompt">[NEON://OVERRIDE]$ </span><span class="err">_</span></div>
+    </div>
+
+    <a class="home-link" href="./website/index.html">⬡ RE-ENTER THE GRID</a>
+  </div>
+</body>
+</html>
