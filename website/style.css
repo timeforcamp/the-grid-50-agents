@@ -1,0 +1,774 @@
+/* ============================================================
+   NEON://OVERRIDE — Design System CSS
+   Author: UX jammer (seed file — Pixel: extend, don't overwrite)
+   WCAG 2.1 AA compliant color tokens & base styles
+   ============================================================ */
+
+/* ── 1. CSS Custom Properties (Design Tokens) ─────────────── */
+:root {
+  /* Colors */
+  --color-bg:           #0a0a0f;
+  --color-bg-surface:   #111118;
+  --color-bg-elevated:  #1a1a24;
+  --color-neon-green:   #00ff41;
+  --color-neon-blue:    #00b8ff;
+  --color-neon-orange:  #ff6b35;
+  --color-neon-purple:  #b44fff;
+  --color-text-primary: #e0e0e0;
+  --color-text-muted:   #888888;
+  --color-text-dim:     #555566;
+  --color-border:       #222233;
+  --color-focus-ring:   #ffffff;
+
+  /* Typography */
+  --font-mono: 'Courier New', 'Courier', 'Lucida Console', monospace;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+  --text-3xl:  clamp(2rem, 5vw, 3rem);
+  --text-display: clamp(3rem, 8vw, 5rem);
+
+  /* Spacing (8px base unit) */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Animation */
+  --duration-fast:  100ms;
+  --duration-base:  200ms;
+  --duration-slow:  300ms;
+  --ease-out:       cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* Border radius */
+  --radius-sm:  2px;
+  --radius-md:  4px;
+  --radius-lg:  8px;
+}
+
+/* ── 2. Reduced Motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── 3. Reset & Base ───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* never below 16px — accessibility */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  line-height: 1.6; /* min 1.5 per WCAG 1.4.12 */
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img, video, canvas {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── 4. Skip Link (accessibility) ─────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  background: var(--color-neon-green);
+  color: #000;
+  font-weight: 700;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  z-index: 9999;
+  transition: top var(--duration-base) var(--ease-out);
+}
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* ── 5. Focus Styles ───────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── 6. Navigation ─────────────────────────────────────────── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-8);
+  background: rgba(10, 10, 15, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-nav__logo {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-neon-green);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px var(--color-neon-green);
+}
+.site-nav__logo:hover,
+.site-nav__logo:focus-visible {
+  text-shadow: 0 0 20px var(--color-neon-green), 0 0 40px var(--color-neon-green);
+}
+
+.site-nav__links {
+  display: flex;
+  gap: var(--space-8);
+  list-style: none;
+}
+
+.site-nav__links a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color var(--duration-base) var(--ease-out),
+              text-shadow var(--duration-base) var(--ease-out);
+}
+.site-nav__links a:hover,
+.site-nav__links a:focus-visible,
+.site-nav__links a[aria-current="page"] {
+  color: var(--color-neon-green);
+  text-shadow: 0 0 8px var(--color-neon-green);
+}
+
+/* Hamburger (mobile) */
+.site-nav__hamburger {
+  display: none;
+  background: none;
+  border: 2px solid var(--color-neon-green);
+  color: var(--color-neon-green);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  font-size: var(--text-base);
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* ── 7. Typography Hierarchy ───────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+h1 { font-size: var(--text-display); }
+h2 { font-size: var(--text-3xl); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+h5 { font-size: var(--text-lg); }
+h6 { font-size: var(--text-base); }
+
+p {
+  max-width: 65ch; /* optimal reading line length */
+  margin-bottom: var(--space-4);
+}
+
+a {
+  color: var(--color-neon-blue);
+  transition: color var(--duration-base) var(--ease-out);
+}
+a:hover {
+  color: var(--color-neon-green);
+}
+
+/* Section dividers */
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-8) 0;
+}
+
+/* ── 8. Buttons ────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-height: 44px; /* WCAG 2.5.5 minimum touch target */
+  padding: var(--space-3) var(--space-6);
+  transition: background-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
+  user-select: none;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary */
+.btn--primary {
+  background-color: var(--color-neon-green);
+  color: #000;
+  font-size: var(--text-base);
+}
+.btn--primary:hover {
+  background-color: #00cc33;
+  box-shadow: 0 0 16px var(--color-neon-green), 0 0 32px rgba(0,255,65,0.3);
+}
+
+/* Secondary (outline) */
+.btn--secondary {
+  background-color: transparent;
+  color: var(--color-neon-blue);
+  border: 2px solid var(--color-neon-blue);
+  font-size: var(--text-base);
+}
+.btn--secondary:hover {
+  box-shadow: 0 0 16px var(--color-neon-blue), 0 0 32px rgba(0,184,255,0.2);
+}
+
+/* Ghost (menu items) */
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+}
+.btn--ghost:hover {
+  border-color: var(--color-neon-green);
+  color: var(--color-neon-green);
+  text-shadow: 0 0 8px var(--color-neon-green);
+}
+
+/* ── 9. Hero Section ───────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--space-24) var(--space-8);
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(10,10,15,0.85), rgba(10,10,15,0.7)),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,65,0.03) 2px, rgba(0,255,65,0.03) 4px);
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__bg {
+    animation: scanline-scroll 8s linear infinite;
+  }
+  @keyframes scanline-scroll {
+    from { background-position: 0 0; }
+    to   { background-position: 0 40px; }
+  }
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+}
+
+.hero__pretitle {
+  font-size: var(--text-sm);
+  color: var(--color-neon-green);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.hero__title {
+  font-size: var(--text-display);
+  color: #fff;
+  text-shadow: 0 0 20px var(--color-neon-green), 0 0 60px rgba(0,255,65,0.2);
+  margin-bottom: var(--space-4);
+  line-height: 1.0;
+}
+
+.hero__subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+  max-width: 50ch;
+  line-height: 1.5;
+}
+
+.hero__cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+/* Scroll cue */
+.hero__scroll-cue {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-text-dim);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-align: center;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero__scroll-cue {
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(8px); }
+  }
+}
+
+/* ── 10. Section Base ──────────────────────────────────────── */
+.section {
+  padding: var(--space-24) var(--space-8);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section--alt {
+  background-color: var(--color-bg-surface);
+}
+
+.section__heading {
+  font-size: var(--text-3xl);
+  color: var(--color-neon-green);
+  text-shadow: 0 0 12px rgba(0,255,65,0.4);
+  margin-bottom: var(--space-4);
+}
+
+.section__subheading {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+  max-width: 60ch;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--duration-slow) var(--ease-out),
+              transform var(--duration-slow) var(--ease-out);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ── 11. Feature Strip (3-col) ─────────────────────────────── */
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  margin-top: var(--space-8);
+}
+
+.feature-card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  transition: border-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+.feature-card:hover {
+  border-color: var(--color-neon-green);
+  box-shadow: 0 0 20px rgba(0,255,65,0.1);
+}
+
+.feature-card__icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-4);
+}
+
+.feature-card__title {
+  font-size: var(--text-xl);
+  color: #fff;
+  margin-bottom: var(--space-2);
+}
+
+.feature-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+/* ── 12. Controls Table ────────────────────────────────────── */
+.controls-table-wrap {
+  overflow-x: auto; /* scrollable on small screens */
+}
+
+.controls-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+.controls-table th,
+.controls-table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+.controls-table th {
+  color: var(--color-neon-green);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.controls-table td:first-child {
+  color: var(--color-neon-blue);
+  white-space: nowrap;
+  font-weight: 700;
+}
+.controls-table tr:hover td {
+  background: var(--color-bg-elevated);
+}
+
+kbd {
+  display: inline-block;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-neon-blue);
+}
+
+/* ── 13. Game Canvas Area ──────────────────────────────────── */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.game-canvas-wrap {
+  width: 100%;
+  max-width: 1024px;
+  border: 2px solid var(--color-neon-green);
+  border-radius: var(--radius-md);
+  box-shadow: 0 0 30px rgba(0,255,65,0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+#game-canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Touch D-pad (mobile only) */
+.touch-controls {
+  display: none;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.touch-btn {
+  background: rgba(0,255,65,0.1);
+  border: 1px solid rgba(0,255,65,0.5);
+  color: var(--color-neon-green);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  min-width: 56px;
+  min-height: 56px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  transition: background var(--duration-fast);
+}
+.touch-btn:active {
+  background: rgba(0,255,65,0.3);
+}
+
+/* ── 14. Overlay / Modal Base ──────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-neon-green);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0 40px rgba(0,255,65,0.15);
+  padding: var(--space-12) var(--space-8);
+  max-width: 560px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal__title {
+  font-size: var(--text-2xl);
+  color: var(--color-neon-green);
+  text-shadow: 0 0 12px rgba(0,255,65,0.5);
+  margin-bottom: var(--space-6);
+  letter-spacing: 0.1em;
+}
+
+.modal__menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.modal__menu-item .btn {
+  width: 100%;
+}
+
+/* ── 15. HUD ───────────────────────────────────────────────── */
+.game-hud {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(10,10,15,0.8);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.hud__score {
+  color: var(--color-neon-green);
+  font-weight: 700;
+}
+
+.hud__multiplier {
+  color: var(--color-neon-orange);
+  font-weight: 700;
+}
+
+.hud__hp {
+  display: flex;
+  gap: var(--space-1);
+}
+
+.hud__hp-block {
+  width: 12px;
+  height: 12px;
+  background: var(--color-neon-orange);
+  border-radius: 2px;
+}
+.hud__hp-block--empty {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+}
+
+/* ── 16. Leaderboard ───────────────────────────────────────── */
+.leaderboard {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.leaderboard__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--duration-base);
+}
+.leaderboard__row:hover {
+  background: var(--color-bg-elevated);
+}
+
+.leaderboard__rank {
+  color: var(--color-text-dim);
+  width: 2em;
+}
+.leaderboard__rank--gold   { color: #ffd700; }
+.leaderboard__rank--silver { color: #c0c0c0; }
+.leaderboard__rank--bronze { color: #cd7f32; }
+
+.leaderboard__score {
+  color: var(--color-neon-green);
+  font-weight: 700;
+}
+
+/* ── 17. Footer ────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-8);
+  text-align: center;
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+}
+
+.site-footer a {
+  color: var(--color-text-muted);
+}
+.site-footer a:hover {
+  color: var(--color-neon-green);
+}
+
+.built-badge {
+  display: inline-block;
+  border: 1px solid var(--color-neon-purple);
+  color: var(--color-neon-purple);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  margin-bottom: var(--space-4);
+}
+
+/* ── 18. Responsive Breakpoints ────────────────────────────── */
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+  .site-nav__links { display: none; }
+  .site-nav__hamburger { display: flex; align-items: center; justify-content: center; }
+
+  .hero {
+    padding: var(--space-16) var(--space-6);
+    align-items: center;
+    text-align: center;
+  }
+  .hero__cta-group { justify-content: center; }
+  .hero__subtitle { margin: 0 auto var(--space-8); }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section {
+    padding: var(--space-16) var(--space-6);
+  }
+
+  .touch-controls { display: flex; }
+
+  .modal { padding: var(--space-8) var(--space-6); }
+}
+
+/* Small mobile (320–479px) */
+@media (max-width: 480px) {
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__cta-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero__cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .section {
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .site-nav {
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
+/* Desktop large (1280px+) */
+@media (min-width: 1280px) {
+  .hero {
+    padding: var(--space-24) var(--space-32);
+  }
+  .section {
+    padding: var(--space-24) var(--space-16);
+  }
+}
+
+/* ── 19. Neon Glow Utilities ───────────────────────────────── */
+.glow-green  { text-shadow: 0 0 10px var(--color-neon-green); }
+.glow-blue   { text-shadow: 0 0 10px var(--color-neon-blue); }
+.glow-orange { text-shadow: 0 0 10px var(--color-neon-orange); }
+.glow-purple { text-shadow: 0 0 10px var(--color-neon-purple); }
+
+.border-glow-green {
+  box-shadow: 0 0 16px rgba(0,255,65,0.3), inset 0 0 16px rgba(0,255,65,0.05);
+}
