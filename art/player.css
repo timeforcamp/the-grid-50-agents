@@ -1,0 +1,106 @@
+/**
+ * NEON://OVERRIDE — Vex-7 Sprite CSS
+ * Pixel-perfect rendering rules for all player sprites.
+ */
+
+/* ─────────────────────────────────────────
+   Base: all player sprite images
+   ───────────────────────────────────────── */
+.player-sprite,
+img[src*="player_run"],
+img[src*="player_jump"],
+img[src*="player_slide"],
+img[src*="player_hack"] {
+  image-rendering: pixelated;          /* Chrome, Safari 15+, Edge */
+  image-rendering: -moz-crisp-edges;   /* Firefox */
+  image-rendering: crisp-edges;        /* CSS Images spec fallback */
+  -ms-interpolation-mode: nearest-neighbor; /* IE 11 legacy */
+}
+
+/* ─────────────────────────────────────────
+   Sprite dimensions
+   ───────────────────────────────────────── */
+
+/* Run / Jump share the 32×48 base frame */
+.sprite-run,
+.sprite-jump {
+  width: 32px;
+  height: 48px;
+}
+
+/* Slide is wider than tall */
+.sprite-slide {
+  width: 48px;
+  height: 32px;
+}
+
+/* Hack has extra room for the data-stream */
+.sprite-hack {
+  width: 48px;
+  height: 48px;
+}
+
+/* ─────────────────────────────────────────
+   Scale helpers (2× and 4× crisp scale-up)
+   ───────────────────────────────────────── */
+.sprite-2x {
+  transform: scale(2);
+  transform-origin: top left;
+  image-rendering: pixelated;
+}
+
+.sprite-4x {
+  transform: scale(4);
+  transform-origin: top left;
+  image-rendering: pixelated;
+}
+
+/* ─────────────────────────────────────────
+   Neon ambient glow wrapper
+   Wrap <img> in <div class="sprite-glow"> to
+   apply the cyan bloom around the character.
+   ───────────────────────────────────────── */
+.sprite-glow {
+  display: inline-block;
+  filter: drop-shadow(0 0 4px #00ffff88)
+          drop-shadow(0 0 8px #00ffff44);
+}
+
+.sprite-glow.hack-mode {
+  filter: drop-shadow(0 0 4px #00ff6688)
+          drop-shadow(0 0 10px #00ff4444);
+}
+
+.sprite-glow.slide-spark {
+  filter: drop-shadow(0 0 4px #00ffff88)
+          drop-shadow(0 0 6px #ff00cc44);
+}
+
+/* ─────────────────────────────────────────
+   Canvas rendering hint (used by game.js
+   when drawing sprites onto a canvas element)
+   ───────────────────────────────────────── */
+canvas#game-canvas {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* ─────────────────────────────────────────
+   Run animation (CSS sprite-sheet flip —
+   use with a sprite-sheet if generated later)
+   ───────────────────────────────────────── */
+@keyframes vex-run {
+  0%, 100% { transform: scaleX(1); }
+  50%       { transform: scaleX(1); } /* placeholder; replace with sheet */
+}
+
+@keyframes vex-hack-pulse {
+  0%   { filter: drop-shadow(0 0 4px #00ff6688) drop-shadow(0 0 10px #00ff4444); }
+  50%  { filter: drop-shadow(0 0 8px #00ff66cc) drop-shadow(0 0 18px #00ff6666); }
+  100% { filter: drop-shadow(0 0 4px #00ff6688) drop-shadow(0 0 10px #00ff4444); }
+}
+
+.sprite-glow.hack-mode {
+  animation: vex-hack-pulse 0.8s ease-in-out infinite;
+}

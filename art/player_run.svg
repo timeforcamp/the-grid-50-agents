@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 32 48" shape-rendering="crispEdges">
+  <defs>
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-mag" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- HEAD (visor + helmet) -->
+  <!-- helmet chrome -->
+  <rect x="10" y="2"  width="12" height="2"  fill="#8899aa"/>
+  <rect x="8"  y="4"  width="16" height="2"  fill="#99aabb"/>
+  <rect x="8"  y="6"  width="2"  height="6"  fill="#99aabb"/>
+  <rect x="22" y="6"  width="2"  height="6"  fill="#99aabb"/>
+  <rect x="8"  y="12" width="2"  height="2"  fill="#99aabb"/>
+  <rect x="22" y="12" width="2"  height="2"  fill="#99aabb"/>
+  <rect x="10" y="12" width="12" height="2"  fill="#8899aa"/>
+  <!-- visor glow -->
+  <rect x="10" y="6"  width="12" height="6"  fill="#001a2e"/>
+  <rect x="10" y="6"  width="12" height="6"  fill="#00eeff" opacity="0.25" filter="url(#glow-cyan)"/>
+  <rect x="10" y="7"  width="12" height="1"  fill="#00eeff" opacity="0.8" filter="url(#glow-cyan)"/>
+  <rect x="10" y="9"  width="12" height="1"  fill="#00ccee" opacity="0.5"/>
+  <!-- visor scanline -->
+  <rect x="10" y="8"  width="12" height="1"  fill="#003344" opacity="0.6"/>
+  <!-- neon cyan visor strip -->
+  <rect x="10" y="6"  width="12" height="1"  fill="#00ffff" filter="url(#glow-cyan)"/>
+  <rect x="10" y="11" width="12" height="1"  fill="#00ffff" filter="url(#glow-cyan)"/>
+
+  <!-- NECK / collar -->
+  <rect x="12" y="14" width="8"  height="2"  fill="#556677"/>
+  <rect x="12" y="14" width="8"  height="1"  fill="#ff00cc" opacity="0.7" filter="url(#glow-mag)"/>
+
+  <!-- TORSO (running, slight lean) -->
+  <rect x="10" y="16" width="14" height="2"  fill="#223344"/>
+  <rect x="10" y="18" width="14" height="8"  fill="#1a2b3c"/>
+  <!-- chest neon stripe -->
+  <rect x="10" y="19" width="14" height="1"  fill="#00ffff" opacity="0.9" filter="url(#glow-cyan)"/>
+  <!-- chest plate detail -->
+  <rect x="12" y="21" width="4"  height="4"  fill="#2a3f55"/>
+  <rect x="18" y="21" width="4"  height="4"  fill="#2a3f55"/>
+  <rect x="16" y="20" width="2"  height="6"  fill="#334455"/>
+  <!-- shoulder pads -->
+  <rect x="8"  y="16" width="2"  height="4"  fill="#334455"/>
+  <rect x="24" y="16" width="2"  height="4"  fill="#334455"/>
+  <rect x="8"  y="16" width="2"  height="1"  fill="#ff00cc" filter="url(#glow-mag)"/>
+  <rect x="24" y="16" width="2"  height="1"  fill="#ff00cc" filter="url(#glow-mag)"/>
+
+  <!-- ARMS (running swing — left forward, right back) -->
+  <!-- Left arm (forward) -->
+  <rect x="6"  y="18" width="4"  height="2"  fill="#334455"/>
+  <rect x="4"  y="20" width="4"  height="2"  fill="#334455"/>
+  <rect x="4"  y="22" width="4"  height="2"  fill="#445566"/>
+  <!-- Left hand -->
+  <rect x="4"  y="24" width="4"  height="2"  fill="#7788aa"/>
+  <!-- Right arm (back) -->
+  <rect x="24" y="18" width="4"  height="2"  fill="#334455"/>
+  <rect x="26" y="20" width="4"  height="2"  fill="#334455"/>
+  <rect x="26" y="22" width="4"  height="2"  fill="#445566"/>
+  <!-- Right hand -->
+  <rect x="26" y="24" width="4"  height="2"  fill="#7788aa"/>
+
+  <!-- WAIST / belt -->
+  <rect x="10" y="26" width="14" height="2"  fill="#112233"/>
+  <rect x="10" y="26" width="14" height="1"  fill="#ff00cc" opacity="0.8" filter="url(#glow-mag)"/>
+  <!-- belt buckle -->
+  <rect x="14" y="26" width="4"  height="2"  fill="#00ffff" opacity="0.7" filter="url(#glow-cyan)"/>
+
+  <!-- LEGS (mid-stride: left leg forward, right leg back) -->
+  <!-- Left thigh (forward) -->
+  <rect x="10" y="28" width="6"  height="4"  fill="#1a2b3c"/>
+  <rect x="10" y="28" width="6"  height="1"  fill="#00ccff" opacity="0.4"/>
+  <!-- Left shin -->
+  <rect x="8"  y="32" width="6"  height="4"  fill="#223344"/>
+  <!-- Left boot -->
+  <rect x="6"  y="36" width="8"  height="4"  fill="#112233"/>
+  <rect x="6"  y="36" width="8"  height="1"  fill="#00ffff" opacity="0.6" filter="url(#glow-cyan)"/>
+  <rect x="4"  y="38" width="10" height="2"  fill="#0a1a28"/>
+  <!-- boot toe cap -->
+  <rect x="4"  y="40" width="4"  height="2"  fill="#00ffff" opacity="0.5" filter="url(#glow-cyan)"/>
+
+  <!-- Right thigh (back/up) -->
+  <rect x="18" y="28" width="6"  height="4"  fill="#1a2b3c"/>
+  <!-- Right shin (bent up) -->
+  <rect x="20" y="32" width="6"  height="4"  fill="#223344"/>
+  <!-- Right boot (kicked up) -->
+  <rect x="22" y="36" width="8"  height="4"  fill="#112233"/>
+  <rect x="22" y="36" width="8"  height="1"  fill="#ff00cc" opacity="0.6" filter="url(#glow-mag)"/>
+  <rect x="22" y="38" width="10" height="2"  fill="#0a1a28"/>
+
+  <!-- NEON TRIM EDGES -->
+  <rect x="8"  y="4"  width="16" height="1"  fill="#00ffff" opacity="0.4" filter="url(#glow-cyan)"/>
+  <rect x="8"  y="12" width="2"  height="1"  fill="#00ffff" opacity="0.3"/>
+  <rect x="22" y="12" width="2"  height="1"  fill="#00ffff" opacity="0.3"/>
+
+  <!-- SCRATCHES / battle damage -->
+  <rect x="13" y="18" width="1"  height="3"  fill="#ffffff" opacity="0.15"/>
+  <rect x="20" y="22" width="1"  height="2"  fill="#ffffff" opacity="0.1"/>
+  <rect x="15" y="30" width="1"  height="2"  fill="#ffffff" opacity="0.1"/>
+</svg>
