@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" shape-rendering="crispEdges">
+  <!-- NEON://OVERRIDE — Pickup: Data Shard crystal (16x16) rotating -->
+
+  <g>
+    <!-- Rotation animation -->
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 8 8"
+      to="360 8 8"
+      dur="1.6s"
+      repeatCount="indefinite"/>
+
+    <!-- Outer glow halo (faint cyan ring) -->
+    <rect x="3"  y="1"  width="10" height="1"  fill="#00ffff" opacity="0.3"/>
+    <rect x="1"  y="3"  width="1"  height="10" fill="#00ffff" opacity="0.3"/>
+    <rect x="14" y="3"  width="1"  height="10" fill="#00ffff" opacity="0.3"/>
+    <rect x="3"  y="14" width="10" height="1"  fill="#00ffff" opacity="0.3"/>
+
+    <!-- Diamond base shape (octagon pixel approximation) -->
+    <rect x="5"  y="2"  width="6"  height="1"  fill="#003333"/>
+    <rect x="3"  y="3"  width="10" height="1"  fill="#004444"/>
+    <rect x="2"  y="4"  width="12" height="7"  fill="#005555"/>
+    <rect x="3"  y="11" width="10" height="1"  fill="#004444"/>
+    <rect x="5"  y="12" width="6"  height="1"  fill="#003333"/>
+
+    <!-- Bright cyan faces -->
+    <rect x="6"  y="2"  width="4"  height="1"  fill="#00ffff"/>
+    <rect x="4"  y="3"  width="8"  height="1"  fill="#00eeee"/>
+    <rect x="3"  y="4"  width="10" height="5"  fill="#00cccc"/>
+    <rect x="3"  y="9"  width="10" height="2"  fill="#009999"/>
+    <rect x="4"  y="11" width="8"  height="1"  fill="#007777"/>
+    <rect x="6"  y="12" width="4"  height="1"  fill="#005555"/>
+
+    <!-- Facet highlight lines (lighter left-upper) -->
+    <rect x="3"  y="4"  width="1"  height="7"  fill="#00ffff" opacity="0.6"/>
+    <rect x="4"  y="3"  width="4"  height="1"  fill="#00ffff" opacity="0.6"/>
+    <!-- Facet shadow lines (darker right-lower) -->
+    <rect x="12" y="4"  width="1"  height="7"  fill="#003344" opacity="0.8"/>
+    <rect x="8"  y="11" width="4"  height="1"  fill="#002233" opacity="0.8"/>
+
+    <!-- Inner vertical facet crease -->
+    <rect x="7"  y="3"  width="1"  height="9"  fill="#00ffff" opacity="0.25"/>
+    <!-- Inner horizontal facet crease -->
+    <rect x="3"  y="7"  width="10" height="1"  fill="#ffffff" opacity="0.15"/>
+
+    <!-- Specular highlight (bright white glint) -->
+    <rect x="5"  y="4"  width="2"  height="2"  fill="#ffffff" opacity="0.9"/>
+    <rect x="5"  y="4"  width="1"  height="1"  fill="#ffffff"/>
+  </g>
+</svg>

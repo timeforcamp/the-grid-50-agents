@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="96" viewBox="0 0 64 96" shape-rendering="crispEdges">
+  <!-- NEON://OVERRIDE — Enemy: ICE Firewall Barrier (64x96) -->
+
+  <!-- Base column — deep dark core -->
+  <rect x="20" y="0" width="24" height="96" fill="#1a001a"/>
+
+  <!-- Outer glow edges (magenta) -->
+  <rect x="18" y="0" width="2"  height="96" fill="#ff00ff" opacity="0.9"/>
+  <rect x="44" y="0" width="2"  height="96" fill="#ff00ff" opacity="0.9"/>
+
+  <!-- Inner shimmer strips -->
+  <rect x="20" y="0" width="3"  height="96" fill="#cc00cc" opacity="0.6"/>
+  <rect x="41" y="0" width="3"  height="96" fill="#cc00cc" opacity="0.6"/>
+  <rect x="24" y="0" width="16" height="96" fill="#440033" opacity="0.8"/>
+
+  <!-- Fractal / recursive box pattern -->
+  <!-- Level 1 box -->
+  <rect x="22" y="8"  width="20" height="16" fill="none" stroke="#ff00ff" stroke-width="1"/>
+  <rect x="22" y="32" width="20" height="16" fill="none" stroke="#ff00ff" stroke-width="1"/>
+  <rect x="22" y="56" width="20" height="16" fill="none" stroke="#ff00ff" stroke-width="1"/>
+  <rect x="22" y="80" width="20" height="14" fill="none" stroke="#ff00ff" stroke-width="1"/>
+  <!-- Level 2 inner boxes -->
+  <rect x="25" y="11" width="14" height="10" fill="none" stroke="#ff44ff" stroke-width="1"/>
+  <rect x="25" y="35" width="14" height="10" fill="none" stroke="#ff44ff" stroke-width="1"/>
+  <rect x="25" y="59" width="14" height="10" fill="none" stroke="#ff44ff" stroke-width="1"/>
+  <rect x="25" y="83" width="14" height="8"  fill="none" stroke="#ff44ff" stroke-width="1"/>
+  <!-- Level 3 innermost fills -->
+  <rect x="28" y="14" width="8"  height="4"  fill="#ff00ff" opacity="0.3"/>
+  <rect x="28" y="38" width="8"  height="4"  fill="#ff00ff" opacity="0.3"/>
+  <rect x="28" y="62" width="8"  height="4"  fill="#ff00ff" opacity="0.3"/>
+  <rect x="28" y="86" width="8"  height="2"  fill="#ff00ff" opacity="0.3"/>
+
+  <!-- GLITCH CUTS — displaced horizontal slices -->
+  <!-- Glitch row 1: displaced right -->
+  <rect x="20" y="24" width="24" height="4" fill="#1a001a"/>
+  <rect x="24" y="24" width="24" height="4" fill="#330022"/>
+  <rect x="44" y="24" width="2"  height="4" fill="#ff00ff" opacity="0.7"/>
+  <rect x="46" y="25" width="4"  height="2" fill="#ff44ff" opacity="0.5"/>
+
+  <!-- Glitch row 2: displaced left -->
+  <rect x="20" y="48" width="24" height="3" fill="#1a001a"/>
+  <rect x="16" y="48" width="24" height="3" fill="#330022"/>
+  <rect x="16" y="48" width="2"  height="3" fill="#ff00ff" opacity="0.7"/>
+  <rect x="12" y="49" width="4"  height="1" fill="#ff44ff" opacity="0.5"/>
+
+  <!-- Glitch row 3: wide rightward shift -->
+  <rect x="20" y="71" width="24" height="2" fill="#1a001a"/>
+  <rect x="28" y="71" width="24" height="2" fill="#440033"/>
+  <rect x="50" y="71" width="2"  height="2" fill="#ff00ff" opacity="0.8"/>
+
+  <!-- Glitch artifact pixels (scattered corruption) -->
+  <rect x="14" y="20" width="4" height="2" fill="#ff44ff" opacity="0.6"/>
+  <rect x="52" y="38" width="6" height="2" fill="#ff00ff" opacity="0.5"/>
+  <rect x="10" y="60" width="6" height="2" fill="#cc00cc" opacity="0.7"/>
+  <rect x="54" y="68" width="4" height="2" fill="#ff44ff" opacity="0.4"/>
+  <rect x="12" y="80" width="2" height="4" fill="#ff00ff" opacity="0.5"/>
+  <rect x="52" y="84" width="2" height="4" fill="#ff00ff" opacity="0.5"/>
+
+  <!-- Top cap glow -->
+  <rect x="18" y="0" width="28" height="2" fill="#ff00ff"/>
+  <rect x="20" y="2" width="24" height="2" fill="#ff88ff" opacity="0.6"/>
+  <!-- Bottom cap glow -->
+  <rect x="18" y="94" width="28" height="2" fill="#ff00ff"/>
+  <rect x="20" y="92" width="24" height="2" fill="#ff88ff" opacity="0.6"/>
+
+  <!-- White spark highlights on edges -->
+  <rect x="18" y="12" width="2" height="1" fill="#ffffff" opacity="0.8"/>
+  <rect x="44" y="40" width="2" height="1" fill="#ffffff" opacity="0.7"/>
+  <rect x="18" y="65" width="2" height="1" fill="#ffffff" opacity="0.6"/>
+  <rect x="44" y="78" width="2" height="1" fill="#ffffff" opacity="0.8"/>
+</svg>

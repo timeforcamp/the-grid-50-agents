@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- NEON://OVERRIDE — Enemy: Surveillance Drone (32x32) -->
+  <!-- Diagonal arms: TL -->
+  <rect x="4"  y="4"  width="2" height="2" fill="#2a2a50"/>
+  <rect x="6"  y="6"  width="2" height="2" fill="#2a2a50"/>
+  <rect x="8"  y="8"  width="2" height="2" fill="#2a2a50"/>
+  <!-- Diagonal arms: TR -->
+  <rect x="26" y="4"  width="2" height="2" fill="#2a2a50"/>
+  <rect x="24" y="6"  width="2" height="2" fill="#2a2a50"/>
+  <rect x="22" y="8"  width="2" height="2" fill="#2a2a50"/>
+  <!-- Diagonal arms: BL -->
+  <rect x="4"  y="26" width="2" height="2" fill="#2a2a50"/>
+  <rect x="6"  y="24" width="2" height="2" fill="#2a2a50"/>
+  <rect x="8"  y="22" width="2" height="2" fill="#2a2a50"/>
+  <!-- Diagonal arms: BR -->
+  <rect x="26" y="26" width="2" height="2" fill="#2a2a50"/>
+  <rect x="24" y="24" width="2" height="2" fill="#2a2a50"/>
+  <rect x="22" y="22" width="2" height="2" fill="#2a2a50"/>
+
+  <!-- Rotor rings (cyan) — TL -->
+  <rect x="1" y="2" width="4" height="1" fill="#00ffff"/>
+  <rect x="1" y="6" width="4" height="1" fill="#00ffff"/>
+  <rect x="1" y="2" width="1" height="5" fill="#00ffff"/>
+  <rect x="5" y="2" width="1" height="5" fill="#00ffff"/>
+  <rect x="2" y="3" width="3" height="3" fill="#001f1f"/>
+  <rect x="3" y="4" width="1" height="1" fill="#00cccc"/>
+  <!-- Rotor rings — TR -->
+  <rect x="27" y="2" width="4" height="1" fill="#00ffff"/>
+  <rect x="27" y="6" width="4" height="1" fill="#00ffff"/>
+  <rect x="27" y="2" width="1" height="5" fill="#00ffff"/>
+  <rect x="31" y="2" width="1" height="5" fill="#00ffff"/>
+  <rect x="28" y="3" width="3" height="3" fill="#001f1f"/>
+  <rect x="29" y="4" width="1" height="1" fill="#00cccc"/>
+  <!-- Rotor rings — BL -->
+  <rect x="1" y="25" width="4" height="1" fill="#00ffff"/>
+  <rect x="1" y="29" width="4" height="1" fill="#00ffff"/>
+  <rect x="1" y="25" width="1" height="5" fill="#00ffff"/>
+  <rect x="5" y="25" width="1" height="5" fill="#00ffff"/>
+  <rect x="2" y="26" width="3" height="3" fill="#001f1f"/>
+  <rect x="3" y="27" width="1" height="1" fill="#00cccc"/>
+  <!-- Rotor rings — BR -->
+  <rect x="27" y="25" width="4" height="1" fill="#00ffff"/>
+  <rect x="27" y="29" width="4" height="1" fill="#00ffff"/>
+  <rect x="27" y="25" width="1" height="5" fill="#00ffff"/>
+  <rect x="31" y="25" width="1" height="5" fill="#00ffff"/>
+  <rect x="28" y="26" width="3" height="3" fill="#001f1f"/>
+  <rect x="29" y="27" width="1" height="1" fill="#00cccc"/>
+
+  <!-- Central body -->
+  <rect x="10" y="10" width="12" height="12" fill="#0d0d22"/>
+  <rect x="11" y="11" width="10" height="10" fill="#1a1a3a"/>
+  <!-- Magenta border -->
+  <rect x="10" y="10" width="12" height="1" fill="#ff00ff"/>
+  <rect x="10" y="21" width="12" height="1" fill="#ff00ff"/>
+  <rect x="10" y="11" width="1"  height="10" fill="#ff00ff"/>
+  <rect x="21" y="11" width="1"  height="10" fill="#ff00ff"/>
+  <!-- Cyan corner bolts -->
+  <rect x="11" y="11" width="2" height="2" fill="#00ffff"/>
+  <rect x="19" y="11" width="2" height="2" fill="#00ffff"/>
+  <rect x="11" y="19" width="2" height="2" fill="#00ffff"/>
+  <rect x="19" y="19" width="2" height="2" fill="#00ffff"/>
+  <!-- Dark centre panel -->
+  <rect x="13" y="13" width="6" height="6" fill="#0a0a18"/>
+  <!-- Red eye (cross-hair pattern) -->
+  <rect x="14" y="15" width="4" height="2" fill="#660011"/>
+  <rect x="15" y="14" width="2" height="4" fill="#660011"/>
+  <rect x="15" y="15" width="2" height="2" fill="#ff1133"/>
+  <rect x="15" y="15" width="1" height="1" fill="#ff8899"/>
+</svg>

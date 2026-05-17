@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="48" viewBox="0 0 32 48" shape-rendering="crispEdges">
+  <!-- NEON://OVERRIDE — Enemy: CorpSec Guard (32x48) -->
+
+  <!-- === HEAD (y: 4-12) === -->
+  <!-- Helmet body -->
+  <rect x="11" y="4"  width="10" height="8"  fill="#1a1a2e"/>
+  <!-- Helmet top arc (blocky pixel) -->
+  <rect x="12" y="3"  width="8"  height="2"  fill="#1a1a2e"/>
+  <rect x="13" y="2"  width="6"  height="2"  fill="#222244"/>
+  <!-- Helmet sides chrome -->
+  <rect x="10" y="5"  width="2"  height="6"  fill="#888899"/>
+  <rect x="20" y="5"  width="2"  height="6"  fill="#888899"/>
+  <!-- Chrome riot visor (reflective bar) -->
+  <rect x="11" y="7"  width="10" height="3"  fill="#aaaacc"/>
+  <rect x="11" y="7"  width="10" height="1"  fill="#ccccee"/>
+  <!-- Visor highlight glint -->
+  <rect x="12" y="7"  width="2"  height="1"  fill="#ffffff"/>
+  <rect x="18" y="8"  width="2"  height="1"  fill="#ddddff"/>
+  <!-- Helmet cyan trim -->
+  <rect x="11" y="4"  width="10" height="1"  fill="#00ffff"/>
+  <rect x="11" y="11" width="10" height="1"  fill="#00ffff"/>
+  <!-- Antenna -->
+  <rect x="18" y="1"  width="1"  height="3"  fill="#888899"/>
+  <rect x="18" y="0"  width="2"  height="1"  fill="#00ffff"/>
+
+  <!-- === NECK (y: 12-14) === -->
+  <rect x="14" y="12" width="4"  height="2"  fill="#333355"/>
+
+  <!-- === TORSO (y: 14-28) === -->
+  <!-- Shoulder pad L -->
+  <rect x="6"  y="14" width="6"  height="4"  fill="#2a2a4a"/>
+  <rect x="6"  y="14" width="6"  height="1"  fill="#00ffff"/>
+  <!-- Shoulder pad R -->
+  <rect x="20" y="14" width="6"  height="4"  fill="#2a2a4a"/>
+  <rect x="20" y="14" width="6"  height="1"  fill="#00ffff"/>
+  <!-- Main torso plate -->
+  <rect x="10" y="14" width="12" height="14" fill="#1e1e38"/>
+  <!-- Torso magenta border -->
+  <rect x="10" y="14" width="12" height="1"  fill="#ff00ff"/>
+  <rect x="10" y="27" width="12" height="1"  fill="#ff00ff"/>
+  <rect x="10" y="14" width="1"  height="14" fill="#ff00ff"/>
+  <rect x="21" y="14" width="1"  height="14" fill="#ff00ff"/>
+  <!-- Chest armor panel -->
+  <rect x="12" y="16" width="8"  height="6"  fill="#252545"/>
+  <rect x="12" y="16" width="8"  height="1"  fill="#00ffff" opacity="0.6"/>
+  <!-- Corp logo / chest icon (simple cross-hair) -->
+  <rect x="15" y="18" width="2"  height="4"  fill="#444466"/>
+  <rect x="14" y="19" width="4"  height="2"  fill="#444466"/>
+  <rect x="16" y="19" width="1"  height="1"  fill="#ff00ff"/>
+  <!-- Belt/waist band -->
+  <rect x="10" y="26" width="12" height="3"  fill="#0d0d22"/>
+  <rect x="11" y="27" width="10" height="1"  fill="#888899"/>
+
+  <!-- === ARMS (y: 14-32) === -->
+  <!-- Left arm -->
+  <rect x="6"  y="18" width="4"  height="10" fill="#1e1e38"/>
+  <rect x="6"  y="18" width="1"  height="10" fill="#444466"/>
+  <rect x="9"  y="18" width="1"  height="10" fill="#ff00ff" opacity="0.5"/>
+  <!-- Right arm -->
+  <rect x="22" y="18" width="4"  height="10" fill="#1e1e38"/>
+  <rect x="25" y="18" width="1"  height="10" fill="#444466"/>
+  <rect x="22" y="18" width="1"  height="10" fill="#ff00ff" opacity="0.5"/>
+  <!-- Gauntlets / gloves -->
+  <rect x="6"  y="28" width="4"  height="4"  fill="#888899"/>
+  <rect x="22" y="28" width="4"  height="4"  fill="#888899"/>
+  <!-- Shock baton in right hand -->
+  <rect x="26" y="24" width="2"  height="12" fill="#555555"/>
+  <rect x="26" y="24" width="2"  height="3"  fill="#00ffff"/>
+  <rect x="27" y="24" width="1"  height="1"  fill="#ffffff"/>
+
+  <!-- === LEGS (y: 29-44) === -->
+  <!-- Left leg -->
+  <rect x="11" y="29" width="6"  height="12" fill="#1a1a30"/>
+  <rect x="11" y="29" width="1"  height="12" fill="#333355"/>
+  <rect x="16" y="29" width="1"  height="12" fill="#333355"/>
+  <!-- Knee pad L -->
+  <rect x="11" y="34" width="6"  height="3"  fill="#2a2a4a"/>
+  <rect x="11" y="34" width="6"  height="1"  fill="#888899"/>
+  <!-- Right leg -->
+  <rect x="17" y="29" width="6"  height="12" fill="#1a1a30"/>
+  <rect x="17" y="29" width="1"  height="12" fill="#333355"/>
+  <rect x="22" y="29" width="1"  height="12" fill="#333355"/>
+  <!-- Knee pad R -->
+  <rect x="17" y="34" width="6"  height="3"  fill="#2a2a4a"/>
+  <rect x="17" y="34" width="6"  height="1"  fill="#888899"/>
+
+  <!-- === BOOTS (y: 41-48) === -->
+  <rect x="10" y="41" width="8"  height="5"  fill="#111122"/>
+  <rect x="10" y="41" width="8"  height="1"  fill="#888899"/>
+  <rect x="10" y="45" width="8"  height="1"  fill="#00ffff"/>
+  <rect x="16" y="41" width="8"  height="5"  fill="#111122"/>
+  <rect x="16" y="41" width="8"  height="1"  fill="#888899"/>
+  <rect x="16" y="45" width="8"  height="1"  fill="#00ffff"/>
+</svg>
