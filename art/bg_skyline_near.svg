@@ -1,0 +1,428 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 540" width="1920" height="540">
+  <!--
+    PARALLAX LAYER 3 — NEAR SKYLINE
+    Transparent background. Closer buildings with lit windows + holographic billboards.
+    Billboards: 草 (green), NEXUS (cyan), ICE-9 (pink)
+  -->
+  <defs>
+    <!-- Building fill gradient (dark w/ slight color variation by height) -->
+    <linearGradient id="bldgNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#080010"/>
+      <stop offset="100%" stop-color="#10001c"/>
+    </linearGradient>
+    <linearGradient id="bldgNearB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#060012"/>
+      <stop offset="100%" stop-color="#0c0018"/>
+    </linearGradient>
+
+    <!-- Window colors -->
+    <!-- (applied inline) -->
+
+    <!-- Billboard glow: 草 GREEN -->
+    <radialGradient id="billGreen" cx="50%" cy="50%" r="60%">
+      <stop offset="0%"   stop-color="#00ff66" stop-opacity="0.90"/>
+      <stop offset="40%"  stop-color="#00cc44" stop-opacity="0.50"/>
+      <stop offset="100%" stop-color="#003322" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Billboard glow: NEXUS CYAN -->
+    <radialGradient id="billCyan" cx="50%" cy="50%" r="60%">
+      <stop offset="0%"   stop-color="#00ffff" stop-opacity="0.90"/>
+      <stop offset="40%"  stop-color="#0099cc" stop-opacity="0.50"/>
+      <stop offset="100%" stop-color="#001833" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Billboard glow: ICE-9 MAGENTA -->
+    <radialGradient id="billMagenta" cx="50%" cy="50%" r="60%">
+      <stop offset="0%"   stop-color="#ff00ff" stop-opacity="0.90"/>
+      <stop offset="40%"  stop-color="#cc0088" stop-opacity="0.50"/>
+      <stop offset="100%" stop-color="#330022" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Glow filters -->
+    <filter id="glowGreen" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowCyan" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowPink" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <filter id="hardGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    <filter id="medBlur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+
+    <!-- Holographic scanline pattern for billboards -->
+    <pattern id="holoScan" x="0" y="0" width="1" height="4" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="1" height="1" fill="#ffffff" opacity="0.12"/>
+    </pattern>
+    <!-- Billboard frame accent pattern -->
+    <pattern id="pixelNoise" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="2" height="2" fill="#ffffff" opacity="0.04"/>
+      <rect x="2" y="2" width="2" height="2" fill="#ffffff" opacity="0.02"/>
+    </pattern>
+  </defs>
+
+  <!-- ═══════════════════════════════════════
+       BUILDING SILHOUETTES — Near layer
+       ═══════════════════════════════════════ -->
+
+  <!-- B1 — left-edge partial, narrow -->
+  <rect x="0"    y="185" width="78"  height="355" fill="url(#bldgNear)"/>
+  <!-- setback -->
+  <rect x="0"    y="135" width="48"  height="52"  fill="url(#bldgNear)"/>
+
+  <!-- B2 — tall anchor with NEXUS billboard -->
+  <rect x="72"   y="118" width="165" height="422" fill="url(#bldgNear)"/>
+  <!-- Rooftop structure -->
+  <rect x="110"  y="88"  width="90"  height="32"  fill="url(#bldgNear)"/>
+  <rect x="148"  y="62"  width="14"  height="28"  fill="url(#bldgNear)"/>
+
+  <!-- B3 — medium, left block -->
+  <rect x="230"  y="162" width="148" height="378" fill="url(#bldgNearB)"/>
+  <rect x="248"  y="138" width="72"  height="26"  fill="url(#bldgNearB)"/>
+
+  <!-- B4 — very tall, 草 billboard -->
+  <rect x="372"  y="94"  width="188" height="446" fill="url(#bldgNear)"/>
+  <rect x="400"  y="62"  width="105" height="34"  fill="url(#bldgNear)"/>
+  <rect x="444"  y="38"  width="18"  height="26"  fill="url(#bldgNear)"/>
+
+  <!-- B5 — medium setback pair -->
+  <rect x="552"  y="150" width="96"  height="390" fill="url(#bldgNearB)"/>
+  <rect x="640"  y="170" width="72"  height="370" fill="url(#bldgNearB)"/>
+
+  <!-- B6 — wide mid tower, ICE-9 billboard -->
+  <rect x="704"  y="122" width="178" height="418" fill="url(#bldgNear)"/>
+  <rect x="730"  y="96"  width="100" height="28"  fill="url(#bldgNear)"/>
+  <rect x="772"  y="70"  width="16"  height="28"  fill="url(#bldgNear)"/>
+
+  <!-- B7 — tall mega-tower -->
+  <rect x="876"  y="88"  width="195" height="452" fill="url(#bldgNearB)"/>
+  <rect x="900"  y="58"  width="120" height="32"  fill="url(#bldgNearB)"/>
+  <rect x="952"  y="32"  width="12"  height="28"  fill="url(#bldgNearB)"/>
+
+  <!-- B8 — stepped building -->
+  <rect x="1064" y="142" width="165" height="398" fill="url(#bldgNear)"/>
+  <rect x="1080" y="112" width="110" height="32"  fill="url(#bldgNear)"/>
+  <rect x="1106" y="88"  width="58"  height="26"  fill="url(#bldgNear)"/>
+
+  <!-- B9 — tall slim tower -->
+  <rect x="1222" y="108" width="130" height="432" fill="url(#bldgNearB)"/>
+  <rect x="1244" y="80"  width="72"  height="30"  fill="url(#bldgNearB)"/>
+  <rect x="1274" y="56"  width="10"  height="26"  fill="url(#bldgNearB)"/>
+
+  <!-- B10 — medium block -->
+  <rect x="1344" y="154" width="148" height="386" fill="url(#bldgNear)"/>
+  <rect x="1360" y="130" width="80"  height="26"  fill="url(#bldgNear)"/>
+
+  <!-- B11 — tall with stepped top -->
+  <rect x="1484" y="126" width="172" height="414" fill="url(#bldgNearB)"/>
+  <rect x="1504" y="96"  width="108" height="32"  fill="url(#bldgNearB)"/>
+  <rect x="1540" y="68"  width="54"  height="30"  fill="url(#bldgNearB)"/>
+  <rect x="1562" y="46"  width="12"  height="24"  fill="url(#bldgNearB)"/>
+
+  <!-- B12 — wide anchor tower -->
+  <rect x="1648" y="104" width="188" height="436" fill="url(#bldgNear)"/>
+  <rect x="1670" y="78"  width="118" height="28"  fill="url(#bldgNear)"/>
+  <rect x="1720" y="52"  width="16"  height="28"  fill="url(#bldgNear)"/>
+
+  <!-- B13 — right-edge partial -->
+  <rect x="1828" y="148" width="92"  height="392" fill="url(#bldgNearB)"/>
+  <rect x="1856" y="120" width="64"  height="30"  fill="url(#bldgNearB)"/>
+
+  <!-- ═══════════════════════════════════════
+       WINDOWS — lit/unlit on each building
+       ═══════════════════════════════════════ -->
+
+  <!-- B1 windows (warm yellow) -->
+  <g fill="#ffdd88" opacity="0.75">
+    <rect x="8"  y="200" width="8" height="5"/><rect x="20" y="200" width="8" height="5"/>
+    <rect x="8"  y="214" width="8" height="5"/><rect x="20" y="214" width="8" height="5" opacity="0.3"/>
+    <rect x="8"  y="228" width="8" height="5"/><rect x="20" y="228" width="8" height="5"/>
+    <rect x="8"  y="242" width="8" height="5" opacity="0.3"/><rect x="20" y="242" width="8" height="5"/>
+    <rect x="8"  y="256" width="8" height="5"/><rect x="20" y="256" width="8" height="5" opacity="0.3"/>
+    <rect x="8"  y="270" width="8" height="5"/><rect x="20" y="270" width="8" height="5"/>
+    <rect x="8"  y="152" width="8" height="5"/><rect x="20" y="152" width="5" height="5"/>
+  </g>
+
+  <!-- B2 windows (mixed warm + blue) -->
+  <g opacity="0.80">
+    <rect x="85"  y="138" width="8" height="5" fill="#ffdd88"/>
+    <rect x="100" y="138" width="8" height="5" fill="#88ccff"/>
+    <rect x="115" y="138" width="8" height="5" fill="#ffdd88"/>
+    <rect x="130" y="138" width="8" height="5" fill="#ffdd88" opacity="0.3"/>
+    <rect x="145" y="138" width="8" height="5" fill="#88ccff"/>
+    <rect x="160" y="138" width="8" height="5" fill="#ffdd88"/>
+    <rect x="175" y="138" width="8" height="5" fill="#88ccff" opacity="0.3"/>
+    <rect x="190" y="138" width="8" height="5" fill="#ffdd88"/>
+    <!-- row 2 -->
+    <rect x="85"  y="152" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <rect x="100" y="152" width="8" height="5" fill="#ffdd88"/>
+    <rect x="115" y="152" width="8" height="5" fill="#88ccff"/>
+    <rect x="130" y="152" width="8" height="5" fill="#ffdd88"/>
+    <rect x="145" y="152" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <rect x="160" y="152" width="8" height="5" fill="#88ccff"/>
+    <rect x="175" y="152" width="8" height="5" fill="#ffdd88"/>
+    <rect x="190" y="152" width="8" height="5" fill="#ffdd88" opacity="0.3"/>
+    <!-- rows 3–6 -->
+    <rect x="85"  y="166" width="8" height="5" fill="#ffdd88"/>
+    <rect x="115" y="166" width="8" height="5" fill="#88ccff"/>
+    <rect x="145" y="166" width="8" height="5" fill="#ffdd88"/>
+    <rect x="175" y="166" width="8" height="5" fill="#ffdd88"/>
+    <rect x="85"  y="180" width="8" height="5" fill="#ffdd88" opacity="0.3"/>
+    <rect x="100" y="180" width="8" height="5" fill="#ffdd88"/>
+    <rect x="130" y="180" width="8" height="5" fill="#88ccff"/>
+    <rect x="160" y="180" width="8" height="5" fill="#ffdd88"/>
+    <rect x="190" y="180" width="8" height="5" fill="#ffdd88"/>
+    <rect x="85"  y="194" width="8" height="5" fill="#88ccff"/>
+    <rect x="115" y="194" width="8" height="5" fill="#ffdd88"/>
+    <rect x="145" y="194" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <rect x="175" y="194" width="8" height="5" fill="#88ccff"/>
+    <rect x="85"  y="208" width="8" height="5" fill="#ffdd88"/>
+    <rect x="100" y="208" width="8" height="5" fill="#ffdd88" opacity="0.3"/>
+    <rect x="130" y="208" width="8" height="5" fill="#ffdd88"/>
+    <rect x="160" y="208" width="8" height="5" fill="#88ccff"/>
+    <rect x="190" y="208" width="8" height="5" fill="#ffdd88"/>
+  </g>
+
+  <!-- B4 windows (warm, dense — tall building) -->
+  <g fill="#ffdd88" opacity="0.72">
+    <rect x="385" y="110" width="9" height="6"/><rect x="400" y="110" width="9" height="6" opacity="0.3"/>
+    <rect x="415" y="110" width="9" height="6"/><rect x="430" y="110" width="9" height="6"/>
+    <rect x="445" y="110" width="9" height="6" opacity="0.3"/><rect x="460" y="110" width="9" height="6"/>
+    <rect x="475" y="110" width="9" height="6"/><rect x="490" y="110" width="9" height="6" opacity="0.4"/>
+    <rect x="505" y="110" width="9" height="6" fill="#88ccff"/><rect x="520" y="110" width="9" height="6"/>
+    <rect x="385" y="124" width="9" height="6" opacity="0.4"/><rect x="400" y="124" width="9" height="6"/>
+    <rect x="415" y="124" width="9" height="6" fill="#88ccff"/><rect x="430" y="124" width="9" height="6" opacity="0.3"/>
+    <rect x="445" y="124" width="9" height="6"/><rect x="460" y="124" width="9" height="6" fill="#88ccff"/>
+    <rect x="475" y="124" width="9" height="6"/><rect x="490" y="124" width="9" height="6"/>
+    <rect x="505" y="124" width="9" height="6" opacity="0.3"/><rect x="520" y="124" width="9" height="6"/>
+    <rect x="385" y="138" width="9" height="6"/><rect x="415" y="138" width="9" height="6"/>
+    <rect x="445" y="138" width="9" height="6" opacity="0.3"/><rect x="475" y="138" width="9" height="6"/>
+    <rect x="505" y="138" width="9" height="6" fill="#88ccff"/>
+    <rect x="385" y="152" width="9" height="6" opacity="0.3"/><rect x="400" y="152" width="9" height="6"/>
+    <rect x="430" y="152" width="9" height="6"/><rect x="460" y="152" width="9" height="6" opacity="0.4"/>
+    <rect x="490" y="152" width="9" height="6"/><rect x="520" y="152" width="9" height="6"/>
+    <!-- additional red accent window -->
+    <rect x="420" y="180" width="9" height="6" fill="#ff4444" opacity="0.85"/>
+  </g>
+
+  <!-- B6 windows (cool blue mix) -->
+  <g opacity="0.78">
+    <rect x="718" y="142" width="8" height="5" fill="#88ccff"/>
+    <rect x="732" y="142" width="8" height="5" fill="#ffdd88"/>
+    <rect x="746" y="142" width="8" height="5" fill="#88ccff" opacity="0.3"/>
+    <rect x="760" y="142" width="8" height="5" fill="#ffdd88"/>
+    <rect x="774" y="142" width="8" height="5" fill="#88ccff"/>
+    <rect x="788" y="142" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <rect x="802" y="142" width="8" height="5" fill="#88ccff"/>
+    <rect x="816" y="142" width="8" height="5" fill="#ffdd88"/>
+    <rect x="830" y="142" width="8" height="5" fill="#88ccff" opacity="0.3"/>
+    <rect x="844" y="142" width="8" height="5" fill="#ffdd88"/>
+    <rect x="858" y="142" width="8" height="5" fill="#88ccff"/>
+    <rect x="718" y="157" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <rect x="732" y="157" width="8" height="5" fill="#88ccff"/>
+    <rect x="746" y="157" width="8" height="5" fill="#ffdd88"/>
+    <rect x="760" y="157" width="8" height="5" fill="#ffdd88" opacity="0.3"/>
+    <rect x="788" y="157" width="8" height="5" fill="#88ccff"/>
+    <rect x="816" y="157" width="8" height="5" fill="#ffdd88"/>
+    <rect x="844" y="157" width="8" height="5" fill="#88ccff" opacity="0.4"/>
+    <rect x="858" y="157" width="8" height="5" fill="#ffdd88"/>
+    <rect x="718" y="172" width="8" height="5" fill="#88ccff"/>
+    <rect x="746" y="172" width="8" height="5" fill="#ffdd88"/>
+    <rect x="774" y="172" width="8" height="5" fill="#88ccff" opacity="0.3"/>
+    <rect x="802" y="172" width="8" height="5" fill="#ffdd88"/>
+    <rect x="830" y="172" width="8" height="5" fill="#88ccff"/>
+    <rect x="858" y="172" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <!-- suspicious red window -->
+    <rect x="762" y="185" width="8" height="5" fill="#ff4444" opacity="0.88"/>
+  </g>
+
+  <!-- B7 windows (large building, heavy density) -->
+  <g opacity="0.75">
+    <rect x="892" y="108" width="9" height="6" fill="#ffdd88"/>
+    <rect x="907" y="108" width="9" height="6" fill="#88ccff" opacity="0.4"/>
+    <rect x="922" y="108" width="9" height="6" fill="#ffdd88"/>
+    <rect x="937" y="108" width="9" height="6" fill="#ffdd88"/>
+    <rect x="952" y="108" width="9" height="6" fill="#88ccff"/>
+    <rect x="967" y="108" width="9" height="6" fill="#ffdd88" opacity="0.3"/>
+    <rect x="982" y="108" width="9" height="6" fill="#ffdd88"/>
+    <rect x="997" y="108" width="9" height="6" fill="#88ccff"/>
+    <rect x="1012" y="108" width="9" height="6" fill="#ffdd88" opacity="0.4"/>
+    <rect x="1027" y="108" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1042" y="108" width="9" height="6" fill="#88ccff" opacity="0.3"/>
+    <rect x="892" y="123" width="9" height="6" fill="#88ccff" opacity="0.4"/>
+    <rect x="907" y="123" width="9" height="6" fill="#ffdd88"/>
+    <rect x="922" y="123" width="9" height="6" fill="#ffdd88" opacity="0.3"/>
+    <rect x="937" y="123" width="9" height="6" fill="#88ccff"/>
+    <rect x="952" y="123" width="9" height="6" fill="#ffdd88"/>
+    <rect x="967" y="123" width="9" height="6" fill="#ffdd88"/>
+    <rect x="982" y="123" width="9" height="6" fill="#88ccff" opacity="0.4"/>
+    <rect x="997" y="123" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1027" y="123" width="9" height="6" fill="#ffdd88" opacity="0.3"/>
+    <rect x="1042" y="123" width="9" height="6" fill="#88ccff"/>
+    <rect x="892" y="138" width="9" height="6" fill="#ffdd88"/>
+    <rect x="922" y="138" width="9" height="6" fill="#88ccff"/>
+    <rect x="952" y="138" width="9" height="6" fill="#ffdd88" opacity="0.3"/>
+    <rect x="982" y="138" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1012" y="138" width="9" height="6" fill="#88ccff" opacity="0.4"/>
+    <rect x="1042" y="138" width="9" height="6" fill="#ffdd88"/>
+  </g>
+
+  <!-- B9 windows -->
+  <g fill="#ffdd88" opacity="0.72">
+    <rect x="1234" y="128" width="8" height="5"/><rect x="1248" y="128" width="8" height="5" opacity="0.3"/>
+    <rect x="1262" y="128" width="8" height="5" fill="#88ccff"/><rect x="1276" y="128" width="8" height="5"/>
+    <rect x="1290" y="128" width="8" height="5" opacity="0.4"/><rect x="1304" y="128" width="8" height="5"/>
+    <rect x="1318" y="128" width="8" height="5" fill="#88ccff" opacity="0.3"/><rect x="1332" y="128" width="8" height="5"/>
+    <rect x="1234" y="142" width="8" height="5" opacity="0.3"/><rect x="1248" y="142" width="8" height="5"/>
+    <rect x="1276" y="142" width="8" height="5" fill="#88ccff"/><rect x="1304" y="142" width="8" height="5"/>
+    <rect x="1332" y="142" width="8" height="5" opacity="0.4"/>
+    <rect x="1234" y="156" width="8" height="5"/><rect x="1262" y="156" width="8" height="5" fill="#88ccff"/>
+    <rect x="1290" y="156" width="8" height="5" opacity="0.3"/><rect x="1318" y="156" width="8" height="5"/>
+  </g>
+
+  <!-- B11 windows -->
+  <g opacity="0.74">
+    <rect x="1498" y="148" width="8" height="5" fill="#ffdd88"/>
+    <rect x="1512" y="148" width="8" height="5" fill="#88ccff" opacity="0.35"/>
+    <rect x="1526" y="148" width="8" height="5" fill="#ffdd88"/>
+    <rect x="1540" y="148" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <rect x="1554" y="148" width="8" height="5" fill="#88ccff"/>
+    <rect x="1568" y="148" width="8" height="5" fill="#ffdd88"/>
+    <rect x="1582" y="148" width="8" height="5" fill="#ffdd88" opacity="0.3"/>
+    <rect x="1596" y="148" width="8" height="5" fill="#88ccff"/>
+    <rect x="1610" y="148" width="8" height="5" fill="#ffdd88"/>
+    <rect x="1624" y="148" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <rect x="1638" y="148" width="8" height="5" fill="#88ccff" opacity="0.35"/>
+    <rect x="1498" y="163" width="8" height="5" fill="#ffdd88" opacity="0.3"/>
+    <rect x="1526" y="163" width="8" height="5" fill="#88ccff"/>
+    <rect x="1554" y="163" width="8" height="5" fill="#ffdd88"/>
+    <rect x="1582" y="163" width="8" height="5" fill="#ffdd88" opacity="0.4"/>
+    <rect x="1610" y="163" width="8" height="5" fill="#88ccff" opacity="0.35"/>
+    <rect x="1638" y="163" width="8" height="5" fill="#ffdd88"/>
+  </g>
+
+  <!-- B12 windows -->
+  <g opacity="0.76">
+    <rect x="1662" y="124" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1678" y="124" width="9" height="6" fill="#88ccff" opacity="0.4"/>
+    <rect x="1694" y="124" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1710" y="124" width="9" height="6" fill="#ffdd88" opacity="0.3"/>
+    <rect x="1726" y="124" width="9" height="6" fill="#88ccff"/>
+    <rect x="1742" y="124" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1758" y="124" width="9" height="6" fill="#ffdd88" opacity="0.4"/>
+    <rect x="1774" y="124" width="9" height="6" fill="#88ccff" opacity="0.35"/>
+    <rect x="1790" y="124" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1806" y="124" width="9" height="6" fill="#ffdd88" opacity="0.3"/>
+    <rect x="1662" y="139" width="9" height="6" fill="#88ccff" opacity="0.35"/>
+    <rect x="1678" y="139" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1694" y="139" width="9" height="6" fill="#ffdd88" opacity="0.4"/>
+    <rect x="1710" y="139" width="9" height="6" fill="#88ccff"/>
+    <rect x="1742" y="139" width="9" height="6" fill="#ffdd88"/>
+    <rect x="1758" y="139" width="9" height="6" fill="#88ccff" opacity="0.3"/>
+    <rect x="1790" y="139" width="9" height="6" fill="#ffdd88" opacity="0.4"/>
+    <rect x="1806" y="139" width="9" height="6" fill="#ffdd88"/>
+    <!-- red anomaly -->
+    <rect x="1726" y="154" width="9" height="6" fill="#ff4444" opacity="0.85"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════
+       HOLOGRAPHIC BILLBOARDS
+       ═══════════════════════════════════════ -->
+
+  <!-- ── BILLBOARD 1: 草 (kanji for 'grass' / corp logo) — GREEN NEON ── -->
+  <!-- Glow halo behind billboard -->
+  <rect x="392" y="190" width="130" height="72" fill="url(#billGreen)" filter="url(#medBlur)" opacity="0.8"/>
+  <!-- Billboard structure: metal bracket arms -->
+  <rect x="420" y="226" width="8" height="36"  fill="#223322"/>
+  <rect x="508" y="226" width="8" height="36"  fill="#223322"/>
+  <!-- Billboard face -->
+  <rect x="396" y="188" width="144" height="76" fill="#040d06" stroke="#00ff44" stroke-width="2.5"/>
+  <!-- Holographic scanlines overlay -->
+  <rect x="396" y="188" width="144" height="76" fill="url(#holoScan)" opacity="0.4"/>
+  <!-- Kanji 草 -->
+  <text x="468" y="248" font-family="serif" font-size="54" font-weight="bold"
+        fill="#00ff66" text-anchor="middle" dominant-baseline="auto"
+        filter="url(#glowGreen)">草</text>
+  <!-- Billboard corner rivets -->
+  <circle cx="402" cy="194" r="3" fill="#448844"/>
+  <circle cx="534" cy="194" r="3" fill="#448844"/>
+  <circle cx="402" cy="258" r="3" fill="#448844"/>
+  <circle cx="534" cy="258" r="3" fill="#448844"/>
+  <!-- Flicker accent line -->
+  <rect x="396" y="216" width="144" height="1" fill="#00ff44" opacity="0.30"/>
+
+  <!-- ── BILLBOARD 2: NEXUS — CYAN NEON ── -->
+  <!-- Glow halo -->
+  <rect x="96" y="155" width="165" height="56" fill="url(#billCyan)" filter="url(#medBlur)" opacity="0.75"/>
+  <!-- Bracket arms -->
+  <rect x="120" y="193" width="8"   height="32" fill="#112233"/>
+  <rect x="230" y="193" width="8"   height="32" fill="#112233"/>
+  <!-- Face -->
+  <rect x="96"  y="152" width="175" height="60" fill="#020a0d" stroke="#00ccff" stroke-width="2.5"/>
+  <rect x="96"  y="152" width="175" height="60" fill="url(#holoScan)" opacity="0.35"/>
+  <!-- Sub-line decoration -->
+  <rect x="100" y="156" width="167" height="2"  fill="#00ffff" opacity="0.55"/>
+  <rect x="100" y="208" width="167" height="2"  fill="#00ffff" opacity="0.55"/>
+  <!-- NEXUS text -->
+  <text x="184" y="195" font-family="'Courier New', monospace" font-size="30" font-weight="bold" letter-spacing="6"
+        fill="#00ffff" text-anchor="middle"
+        filter="url(#glowCyan)">NEXUS</text>
+  <!-- Sub-text -->
+  <text x="184" y="208" font-family="'Courier New', monospace" font-size="9" letter-spacing="3"
+        fill="#0088aa" text-anchor="middle">CORPORATION // 企業体</text>
+  <!-- Corner rivets -->
+  <circle cx="102" cy="158" r="3" fill="#004466"/>
+  <circle cx="265" cy="158" r="3" fill="#004466"/>
+  <circle cx="102" cy="206" r="3" fill="#004466"/>
+  <circle cx="265" cy="206" r="3" fill="#004466"/>
+
+  <!-- ── BILLBOARD 3: ICE-9 — HOT PINK NEON ── -->
+  <!-- Glow halo -->
+  <rect x="718" y="145" width="155" height="60" fill="url(#billMagenta)" filter="url(#medBlur)" opacity="0.80"/>
+  <!-- Bracket arms -->
+  <rect x="745" y="188" width="8"   height="30" fill="#221133"/>
+  <rect x="845" y="188" width="8"   height="30" fill="#221133"/>
+  <!-- Face -->
+  <rect x="718" y="142" width="165" height="64" fill="#08000d" stroke="#ff00cc" stroke-width="2.5"/>
+  <rect x="718" y="142" width="165" height="64" fill="url(#holoScan)" opacity="0.40"/>
+  <!-- Decorative lines -->
+  <rect x="722" y="147" width="157" height="2"  fill="#ff00ff" opacity="0.50"/>
+  <rect x="722" y="201" width="157" height="2"  fill="#ff00ff" opacity="0.50"/>
+  <!-- ICE-9 text -->
+  <text x="800" y="186" font-family="'Courier New', monospace" font-size="28" font-weight="bold" letter-spacing="4"
+        fill="#ff22ee" text-anchor="middle"
+        filter="url(#glowPink)">ICE-9</text>
+  <!-- Sub-text: warning / corp copy -->
+  <text x="800" y="200" font-family="'Courier New', monospace" font-size="9" letter-spacing="2"
+        fill="#880066" text-anchor="middle">NEURAL INTRUSION SYS</text>
+  <!-- Corner rivets -->
+  <circle cx="724" cy="148" r="3" fill="#660044"/>
+  <circle cx="877" cy="148" r="3" fill="#660044"/>
+  <circle cx="724" cy="200" r="3" fill="#660044"/>
+  <circle cx="877" cy="200" r="3" fill="#660044"/>
+
+  <!-- ═══════════════════════════════════════
+       ROOF GLOW / AMBIENT LIGHT SPILL
+       ═══════════════════════════════════════ -->
+  <!-- Rooftop neon tubing glow – ambient spill from NEXUS billboard -->
+  <ellipse cx="184" cy="152" rx="92"  ry="22" fill="#00ccff" filter="url(#softGlow)" opacity="0.35"/>
+  <!-- From 草 billboard -->
+  <ellipse cx="468" cy="188" rx="80"  ry="20" fill="#00ff66" filter="url(#softGlow)" opacity="0.30"/>
+  <!-- From ICE-9 billboard -->
+  <ellipse cx="800" cy="142" rx="90"  ry="22" fill="#ff00cc" filter="url(#softGlow)" opacity="0.32"/>
+  <!-- General rooftop glow for main towers -->
+  <ellipse cx="968" cy="88"  rx="110" ry="20" fill="#8800ff" filter="url(#softGlow)" opacity="0.28"/>
+  <ellipse cx="1284" cy="80" rx="74"  ry="18" fill="#00ffaa" filter="url(#softGlow)" opacity="0.25"/>
+  <ellipse cx="1567" cy="68" rx="60"  ry="16" fill="#ff8800" filter="url(#softGlow)" opacity="0.28"/>
+  <ellipse cx="1730" cy="52" rx="90"  ry="18" fill="#ff00cc" filter="url(#softGlow)" opacity="0.26"/>
+</svg>

@@ -1,0 +1,349 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 540" width="1920" height="540">
+  <!--
+    PARALLAX LAYER 4 — STREET FOREGROUND
+    Transparent background. Rain streaks (full height), street level, wet ground,
+    signage in JP/EN, infrastructure detail.
+  -->
+  <defs>
+    <!-- Rain streak patterns — different densities/angles for layered depth -->
+    <pattern id="rainFar" x="0" y="0" width="18" height="55"
+             patternUnits="userSpaceOnUse" patternTransform="rotate(-7)">
+      <line x1="9" y1="0" x2="9" y2="40" stroke="#99bbdd" stroke-width="0.6" opacity="0.35"/>
+    </pattern>
+    <pattern id="rainMid" x="0" y="0" width="12" height="70"
+             patternUnits="userSpaceOnUse" patternTransform="rotate(-9)">
+      <line x1="6" y1="0" x2="6" y2="52" stroke="#aaccee" stroke-width="0.9" opacity="0.28"/>
+    </pattern>
+    <pattern id="rainNear" x="0" y="0" width="28" height="90"
+             patternUnits="userSpaceOnUse" patternTransform="rotate(-11)">
+      <line x1="14" y1="0" x2="14" y2="70" stroke="#ccddff" stroke-width="1.4" opacity="0.22"/>
+    </pattern>
+    <!-- Heavy rain burst streaks -->
+    <pattern id="rainHeavy" x="0" y="0" width="8" height="44"
+             patternUnits="userSpaceOnUse" patternTransform="rotate(-8)">
+      <line x1="4" y1="0" x2="4" y2="30" stroke="#bbddff" stroke-width="0.5" opacity="0.18"/>
+    </pattern>
+
+    <!-- Wet street gradient -->
+    <linearGradient id="streetGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#0a0a12" stop-opacity="0.90"/>
+      <stop offset="60%"  stop-color="#0c0c18" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#050508" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Puddle reflections -->
+    <radialGradient id="puddleCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00ffff" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#004466" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="puddlePink" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ff00cc" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#330022" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="puddleGreen" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#00ff88" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#003322" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="puddleOrange" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ff8800" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#221100" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Sign glow filters -->
+    <filter id="glowRed" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowBlue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowYellow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="blur12" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+    <filter id="blur6" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="blur3" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+  </defs>
+
+  <!-- ═══════════════════════════════════════
+       RAIN STREAKS (full 1920×540 coverage)
+       ═══════════════════════════════════════ -->
+  <!-- Layered rain for depth: far=fine/light, near=thick/bright -->
+  <rect width="1920" height="540" fill="url(#rainFar)"   opacity="0.85"/>
+  <rect width="1920" height="540" fill="url(#rainHeavy)" opacity="0.70"/>
+  <rect width="1920" height="540" fill="url(#rainMid)"   opacity="0.60"/>
+  <rect width="1920" height="540" fill="url(#rainNear)"  opacity="0.55"/>
+
+  <!-- Individual hero rain streaks (large/close drops) -->
+  <g stroke="#ddeeff" opacity="0.45">
+    <line x1="142"  y1="0"   x2="133"  y2="90"  stroke-width="1.8"/>
+    <line x1="380"  y1="20"  x2="369"  y2="125" stroke-width="2.0"/>
+    <line x1="615"  y1="0"   x2="603"  y2="100" stroke-width="1.6"/>
+    <line x1="870"  y1="10"  x2="859"  y2="108" stroke-width="1.9"/>
+    <line x1="1100" y1="0"   x2="1088" y2="95"  stroke-width="1.7"/>
+    <line x1="1340" y1="15"  x2="1328" y2="115" stroke-width="2.1"/>
+    <line x1="1580" y1="0"   x2="1568" y2="92"  stroke-width="1.8"/>
+    <line x1="1810" y1="8"   x2="1798" y2="105" stroke-width="1.6"/>
+    <!-- mid-screen bursts -->
+    <line x1="255"  y1="180" x2="243"  y2="290" stroke-width="1.9"/>
+    <line x1="740"  y1="200" x2="727"  y2="310" stroke-width="2.0"/>
+    <line x1="1200" y1="160" x2="1187" y2="270" stroke-width="1.8"/>
+    <line x1="1700" y1="190" x2="1687" y2="300" stroke-width="2.1"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════
+       STREET / GROUND SURFACE (y ≈ 440–540)
+       ═══════════════════════════════════════ -->
+  <!-- Asphalt base -->
+  <rect x="0" y="440" width="1920" height="100" fill="url(#streetGrad)"/>
+  <!-- Curb line -->
+  <rect x="0" y="440" width="1920" height="3"   fill="#1a1a28" opacity="0.95"/>
+  <!-- Faded road center lines -->
+  <rect x="0"    y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="180"  y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="360"  y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="540"  y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="720"  y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="900"  y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="1080" y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="1260" y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="1440" y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="1620" y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+  <rect x="1800" y="488" width="120" height="4" fill="#ffffff" opacity="0.08"/>
+
+  <!-- Wet ground sheen -->
+  <rect x="0" y="455" width="1920" height="85" fill="#0044aa" opacity="0.04"/>
+
+  <!-- ── PUDDLE REFLECTIONS ── -->
+  <ellipse cx="200"  cy="510" rx="110" ry="18" fill="url(#puddleCyan)"   filter="url(#blur6)"/>
+  <ellipse cx="490"  cy="498" rx="90"  ry="14" fill="url(#puddlePink)"  filter="url(#blur6)"/>
+  <ellipse cx="810"  cy="520" rx="130" ry="20" fill="url(#puddleGreen)" filter="url(#blur6)"/>
+  <ellipse cx="1150" cy="508" rx="100" ry="16" fill="url(#puddleOrange)" filter="url(#blur6)"/>
+  <ellipse cx="1440" cy="516" rx="120" ry="18" fill="url(#puddleCyan)"   filter="url(#blur6)"/>
+  <ellipse cx="1720" cy="502" rx="95"  ry="15" fill="url(#puddlePink)"  filter="url(#blur6)"/>
+  <!-- Smaller puddles -->
+  <ellipse cx="350"  cy="528" rx="50"  ry="8"  fill="url(#puddleCyan)"  filter="url(#blur3)"/>
+  <ellipse cx="980"  cy="535" rx="60"  ry="9"  fill="url(#puddleGreen)" filter="url(#blur3)"/>
+  <ellipse cx="1580" cy="530" rx="55"  ry="8"  fill="url(#puddlePink)"  filter="url(#blur3)"/>
+
+  <!-- ═══════════════════════════════════════
+       STREET-LEVEL SIGNAGE (JP + EN)
+       ═══════════════════════════════════════ -->
+
+  <!-- ── SIGN 1: 拉麺 / RAMEN — red neon ── -->
+  <!-- Glow behind sign -->
+  <rect x="62" y="378" width="148" height="52" fill="#ff2200" filter="url(#blur12)" opacity="0.45"/>
+  <!-- Sign box -->
+  <rect x="62" y="378" width="148" height="52" fill="#0d0004" stroke="#ff3300" stroke-width="2"/>
+  <rect x="66" y="382" width="140" height="2"  fill="#ff4400" opacity="0.6"/>
+  <rect x="66" y="425" width="140" height="2"  fill="#ff4400" opacity="0.6"/>
+  <!-- Kanji + EN -->
+  <text x="136" y="413" font-family="serif" font-size="22" font-weight="bold"
+        fill="#ff4422" text-anchor="middle" filter="url(#glowRed)">拉麺</text>
+  <text x="136" y="425" font-family="'Courier New', monospace" font-size="8"
+        letter-spacing="5" fill="#aa2200" text-anchor="middle">RAMEN</text>
+
+  <!-- ── SIGN 2: 24時間営業 / 24HRS — yellow/amber ── -->
+  <rect x="250" y="392" width="130" height="44" fill="#221100" filter="url(#blur12)" opacity="0.50"/>
+  <rect x="250" y="392" width="130" height="44" fill="#080400" stroke="#ffaa00" stroke-width="1.8"/>
+  <text x="315" y="420" font-family="'Courier New', monospace" font-size="13" font-weight="bold"
+        letter-spacing="1" fill="#ffcc00" text-anchor="middle"
+        filter="url(#glowYellow)">24時間</text>
+  <text x="315" y="431" font-family="'Courier New', monospace" font-size="7"
+        letter-spacing="4" fill="#886600" text-anchor="middle">24 HRS OPEN</text>
+
+  <!-- ── SIGN 3: HOTEL ホテル — blue neon ── -->
+  <rect x="440" y="370" width="155" height="58" fill="#001133" filter="url(#blur12)" opacity="0.45"/>
+  <rect x="440" y="370" width="155" height="58" fill="#02060d" stroke="#0066ff" stroke-width="2"/>
+  <rect x="444" y="374" width="147" height="2"  fill="#0099ff" opacity="0.5"/>
+  <rect x="444" y="423" width="147" height="2"  fill="#0099ff" opacity="0.5"/>
+  <text x="518" y="400" font-family="'Courier New', monospace" font-size="18" font-weight="bold"
+        letter-spacing="3" fill="#3399ff" text-anchor="middle"
+        filter="url(#glowBlue)">HOTEL</text>
+  <text x="518" y="416" font-family="serif" font-size="13"
+        fill="#0055bb" text-anchor="middle"
+        filter="url(#glowBlue)">ホテル</text>
+
+  <!-- ── SIGN 4: 居酒屋 (Izakaya) — warm red lantern ── -->
+  <!-- Lantern-style vertical sign -->
+  <rect x="650" y="365" width="42" height="80" fill="#0a0004" stroke="#cc2200" stroke-width="1.8" rx="4"/>
+  <rect x="650" y="365" width="42" height="80" fill="#cc1100" filter="url(#blur12)" opacity="0.20"/>
+  <text x="671" y="412" font-family="serif" font-size="30" font-weight="bold"
+        fill="#ff5533" text-anchor="middle" writing-mode="tb"
+        filter="url(#glowRed)">居酒屋</text>
+  <!-- Rope suspension lines -->
+  <line x1="660" y1="360" x2="660" y2="365" stroke="#886644" stroke-width="1.5"/>
+  <line x1="682" y1="360" x2="682" y2="365" stroke="#886644" stroke-width="1.5"/>
+
+  <!-- ── SIGN 5: CYBER NET CAFÉ — cyan ── -->
+  <rect x="730" y="388" width="180" height="48" fill="#001111" filter="url(#blur12)" opacity="0.40"/>
+  <rect x="730" y="388" width="180" height="48" fill="#020809" stroke="#00cccc" stroke-width="1.8"/>
+  <text x="820" y="411" font-family="'Courier New', monospace" font-size="13" font-weight="bold"
+        letter-spacing="2" fill="#00ffcc" text-anchor="middle"
+        filter="url(#glowGreen)">CYBER NET CAFÉ</text>
+  <text x="820" y="428" font-family="'Courier New', monospace" font-size="8"
+        letter-spacing="3" fill="#006655" text-anchor="middle">サイバーネット喫茶 // PORT 8080</text>
+
+  <!-- ── SIGN 6: 警告 / WARNING — flashing red ── -->
+  <rect x="960" y="395" width="120" height="40" fill="#110000" stroke="#ff0000" stroke-width="2.5"/>
+  <text x="1020" y="421" font-family="'Courier New', monospace" font-size="13" font-weight="bold"
+        letter-spacing="1" fill="#ff0000" text-anchor="middle"
+        filter="url(#glowRed)">警 告</text>
+  <text x="1020" y="430" font-family="'Courier New', monospace" font-size="7"
+        letter-spacing="4" fill="#880000" text-anchor="middle">WARNING</text>
+  <!-- Hazard stripes top + bottom -->
+  <rect x="960" y="395" width="120" height="5" fill="#ffff00" opacity="0.25"/>
+  <rect x="960" y="430" width="120" height="5" fill="#ffff00" opacity="0.25"/>
+
+  <!-- ── SIGN 7: 薬局 (Pharmacy) + cross ── -->
+  <rect x="1130" y="375" width="110" height="56" fill="#001800" filter="url(#blur12)" opacity="0.38"/>
+  <rect x="1130" y="375" width="110" height="56" fill="#040a04" stroke="#00ff44" stroke-width="1.8"/>
+  <!-- Green cross -->
+  <rect x="1157" y="386" width="12" height="34" fill="#00dd33" opacity="0.9" filter="url(#glowGreen)"/>
+  <rect x="1150" y="393" width="26" height="12" fill="#00dd33" opacity="0.9" filter="url(#glowGreen)"/>
+  <text x="1213" y="407" font-family="serif" font-size="18"
+        fill="#00ee44" text-anchor="middle" filter="url(#glowGreen)">薬局</text>
+  <text x="1213" y="420" font-family="'Courier New', monospace" font-size="7"
+        letter-spacing="2" fill="#006622" text-anchor="middle">PHARMACY</text>
+
+  <!-- ── SIGN 8: NOODLES 麺 — orange ── -->
+  <rect x="1300" y="383" width="140" height="50" fill="#110600" filter="url(#blur12)" opacity="0.42"/>
+  <rect x="1300" y="383" width="140" height="50" fill="#060200" stroke="#ff7700" stroke-width="1.8"/>
+  <text x="1370" y="412" font-family="'Courier New', monospace" font-size="16" font-weight="bold"
+        letter-spacing="2" fill="#ff9900" text-anchor="middle"
+        filter="url(#glowYellow)">NOODLES 麺</text>
+  <text x="1370" y="426" font-family="'Courier New', monospace" font-size="7"
+        letter-spacing="3" fill="#663300" text-anchor="middle">博多ラーメン / HAKATA RAMEN</text>
+
+  <!-- ── SIGN 9: 非常口 EXIT — green ── -->
+  <rect x="1490" y="390" width="100" height="38" fill="#002200" stroke="#00ff00" stroke-width="2"/>
+  <!-- Running figure icon (simplified) -->
+  <circle cx="1508" cy="402" r="4" fill="#00ff00" opacity="0.9"/>
+  <line x1="1508" y1="406" x2="1506" y2="420" stroke="#00ff00" stroke-width="2"/>
+  <line x1="1506" y1="412" x2="1500" y2="416" stroke="#00ff00" stroke-width="1.5"/>
+  <line x1="1506" y1="412" x2="1512" y2="416" stroke="#00ff00" stroke-width="1.5"/>
+  <line x1="1506" y1="420" x2="1502" y2="426" stroke="#00ff00" stroke-width="1.5"/>
+  <line x1="1506" y1="420" x2="1510" y2="426" stroke="#00ff00" stroke-width="1.5"/>
+  <!-- Arrow -->
+  <text x="1538" y="422" font-family="'Courier New', monospace" font-size="10"
+        fill="#00ff00" text-anchor="middle"
+        filter="url(#glowGreen)">→EXIT</text>
+  <text x="1538" y="425" font-family="sans-serif" font-size="7"
+        fill="#007700" text-anchor="middle">非常口</text>
+
+  <!-- ── SIGN 10: PACHINKO — magenta blaze ── -->
+  <rect x="1640" y="365" width="180" height="65" fill="#110011" filter="url(#blur12)" opacity="0.45"/>
+  <rect x="1640" y="365" width="180" height="65" fill="#060005" stroke="#ff00ff" stroke-width="2.5"/>
+  <rect x="1644" y="369" width="172" height="3"  fill="#ff44ff" opacity="0.5"/>
+  <rect x="1644" y="426" width="172" height="3"  fill="#ff44ff" opacity="0.5"/>
+  <text x="1730" y="396" font-family="serif" font-size="19" font-weight="bold"
+        fill="#ff44ff" text-anchor="middle"
+        filter="url(#glowRed)">パチンコ</text>
+  <text x="1730" y="415" font-family="'Courier New', monospace" font-size="11" font-weight="bold"
+        letter-spacing="3" fill="#cc00cc" text-anchor="middle"
+        filter="url(#glowRed)">PACHINKO</text>
+  <text x="1730" y="426" font-family="'Courier New', monospace" font-size="7"
+        letter-spacing="2" fill="#660044" text-anchor="middle">大当たり!!  JACKPOT ZONE</text>
+
+  <!-- ═══════════════════════════════════════
+       INFRASTRUCTURE: CABLES, PIPES, FIRE ESCAPES
+       ═══════════════════════════════════════ -->
+
+  <!-- Hanging cables (overhead wires) -->
+  <g stroke="#222234" stroke-width="1.5" fill="none" opacity="0.80">
+    <!-- Main cable runs (slightly catenary sagging) -->
+    <path d="M0,320 Q240,334 480,326 Q720,318 960,332 Q1200,346 1440,330 Q1680,314 1920,328"/>
+    <path d="M0,308 Q300,320 600,314 Q900,308 1200,318 Q1500,328 1920,316" opacity="0.70"/>
+    <path d="M0,298 Q400,310 800,303 Q1200,296 1600,308 Q1760,314 1920,305" opacity="0.55"/>
+    <!-- Thicker power lines -->
+    <path d="M0,340 Q480,356 960,348 Q1440,340 1920,352" stroke-width="2.2" opacity="0.65"/>
+  </g>
+  <!-- Cable insulators on poles -->
+  <g fill="#333355" opacity="0.85">
+    <rect x="158"  y="316" width="4" height="18"/>
+    <rect x="480"  y="322" width="4" height="18"/>
+    <rect x="820"  y="310" width="4" height="18"/>
+    <rect x="1160" y="318" width="4" height="18"/>
+    <rect x="1500" y="308" width="4" height="18"/>
+    <rect x="1840" y="322" width="4" height="18"/>
+  </g>
+
+  <!-- Fire escape ladders -->
+  <g stroke="#1a1a2e" stroke-width="2" fill="none" opacity="0.80">
+    <!-- Ladder 1 (left) -->
+    <rect x="36" y="355" width="28" height="85" fill="none" stroke="#1e1e30" stroke-width="2"/>
+    <line x1="36" y1="370" x2="64" y2="370" stroke-width="1.5"/>
+    <line x1="36" y1="384" x2="64" y2="384" stroke-width="1.5"/>
+    <line x1="36" y1="398" x2="64" y2="398" stroke-width="1.5"/>
+    <line x1="36" y1="412" x2="64" y2="412" stroke-width="1.5"/>
+    <line x1="36" y1="426" x2="64" y2="426" stroke-width="1.5"/>
+    <!-- Ladder 2 (mid) -->
+    <rect x="1854" y="340" width="28" height="100" fill="none" stroke="#1e1e30" stroke-width="2"/>
+    <line x1="1854" y1="356" x2="1882" y2="356" stroke-width="1.5"/>
+    <line x1="1854" y1="372" x2="1882" y2="372" stroke-width="1.5"/>
+    <line x1="1854" y1="388" x2="1882" y2="388" stroke-width="1.5"/>
+    <line x1="1854" y1="404" x2="1882" y2="404" stroke-width="1.5"/>
+    <line x1="1854" y1="420" x2="1882" y2="420" stroke-width="1.5"/>
+  </g>
+
+  <!-- Vertical utility pipes on building sides -->
+  <g fill="#111122" stroke="#1a1a30" stroke-width="0.8" opacity="0.82">
+    <rect x="208"  y="350" width="6" height="190"/>
+    <rect x="216"  y="360" width="4" height="180"/>
+    <rect x="630"  y="345" width="7" height="195"/>
+    <rect x="1060" y="355" width="6" height="185"/>
+    <rect x="1647" y="348" width="7" height="192"/>
+    <rect x="1655" y="360" width="4" height="180"/>
+  </g>
+  <!-- Pipe junction caps -->
+  <g fill="#222240" opacity="0.85">
+    <ellipse cx="211" cy="350" rx="6" ry="4"/>
+    <ellipse cx="633" cy="345" rx="7" ry="4"/>
+    <ellipse cx="1063" cy="355" rx="6" ry="4"/>
+    <ellipse cx="1650" cy="348" rx="7" ry="4"/>
+  </g>
+
+  <!-- Air conditioning units (small boxes on building faces) -->
+  <g fill="#0d0d18" stroke="#222234" stroke-width="1" opacity="0.82">
+    <rect x="92"  y="380" width="22" height="16"/>
+    <rect x="350" y="371" width="24" height="17"/>
+    <rect x="870" y="375" width="22" height="16"/>
+    <rect x="1280" y="368" width="26" height="18"/>
+    <rect x="1540" y="378" width="22" height="16"/>
+    <rect x="1780" y="372" width="24" height="17"/>
+  </g>
+  <!-- AC vents (louvre lines) -->
+  <g stroke="#33334a" stroke-width="0.8" opacity="0.70">
+    <line x1="93"  y1="384" x2="113" y2="384"/>
+    <line x1="93"  y1="388" x2="113" y2="388"/>
+    <line x1="93"  y1="392" x2="113" y2="392"/>
+    <line x1="351" y1="375" x2="373" y2="375"/>
+    <line x1="351" y1="379" x2="373" y2="379"/>
+    <line x1="351" y1="383" x2="373" y2="383"/>
+    <line x1="871" y1="379" x2="891" y2="379"/>
+    <line x1="871" y1="383" x2="891" y2="383"/>
+    <line x1="871" y1="387" x2="891" y2="387"/>
+  </g>
+
+  <!-- ═══════════════════════════════════════
+       AMBIENT GLOW — NEON SIGN SPILL ON GROUND
+       ═══════════════════════════════════════ -->
+  <ellipse cx="136"  cy="454" rx="80"  ry="14" fill="#ff3300" opacity="0.10" filter="url(#blur6)"/>
+  <ellipse cx="518"  cy="460" rx="78"  ry="12" fill="#0055ff" opacity="0.10" filter="url(#blur6)"/>
+  <ellipse cx="820"  cy="452" rx="90"  ry="13" fill="#00ddbb" opacity="0.09" filter="url(#blur6)"/>
+  <ellipse cx="1020" cy="457" rx="65"  ry="11" fill="#ff0000" opacity="0.09" filter="url(#blur6)"/>
+  <ellipse cx="1370" cy="455" rx="75"  ry="12" fill="#ff8800" opacity="0.09" filter="url(#blur6)"/>
+  <ellipse cx="1730" cy="450" rx="95"  ry="14" fill="#ff00ff" opacity="0.10" filter="url(#blur6)"/>
+</svg>
