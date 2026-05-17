@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 160" width="680" height="160">
+  <defs>
+    <filter id="mono-glow" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background: transparent for flexibility; use dark rect for preview -->
+  <rect width="680" height="160" fill="#0d0d1a" rx="4"/>
+
+  <!-- Corner brackets -->
+  <g stroke="#f8f8ff" stroke-width="1.5" fill="none" opacity="0.6">
+    <polyline points="20,30 20,22 28,22"/>
+    <polyline points="652,22 660,22 660,30"/>
+    <polyline points="20,130 20,138 28,138"/>
+    <polyline points="652,138 660,138 660,130"/>
+  </g>
+  <!-- Border lines -->
+  <line x1="20" y1="18" x2="660" y2="18" stroke="#f8f8ff" stroke-width="1" opacity="0.25"/>
+  <line x1="20" y1="142" x2="660" y2="142" stroke="#f8f8ff" stroke-width="1" opacity="0.25"/>
+
+  <!-- Full wordmark in single color — off-white with glow -->
+  <text
+    x="34"
+    y="108"
+    font-family="'Orbitron', 'VT323', monospace"
+    font-size="68"
+    font-weight="900"
+    letter-spacing="2"
+    fill="#f8f8ff"
+    filter="url(#mono-glow)"
+  >NEON://OVERRIDE</text>
+
+  <!-- Tagline -->
+  <text
+    x="340"
+    y="132"
+    font-family="'JetBrains Mono', 'Courier New', monospace"
+    font-size="10"
+    fill="#f8f8ff"
+    opacity="0.45"
+    text-anchor="middle"
+    letter-spacing="4"
+  >CYBERPUNK INDIE GAME</text>
+</svg>

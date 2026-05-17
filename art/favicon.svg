@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <filter id="glow-c" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-m" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="32" height="32" fill="#0d0d1a" rx="3"/>
+
+  <!-- Stylized "N://" mark — N in cyan, :// in magenta -->
+  <!-- N letterform built from lines for pixel-crisp neon look -->
+  <!-- Left vertical bar of N -->
+  <rect x="4" y="6" width="3" height="20" fill="#00ffff" filter="url(#glow-c)" rx="1"/>
+  <!-- Diagonal of N -->
+  <polygon points="7,6 10,6 17,20 14,20" fill="#00ffff" filter="url(#glow-c)"/>
+  <!-- Right vertical bar of N -->
+  <rect x="14" y="6" width="3" height="20" fill="#00ffff" filter="url(#glow-c)" rx="1"/>
+
+  <!-- ":/" sigil in magenta, tight right side -->
+  <!-- colon dots -->
+  <rect x="20" y="9" width="2.5" height="2.5" fill="#ff00ff" filter="url(#glow-m)" rx="0.5"/>
+  <rect x="20" y="14" width="2.5" height="2.5" fill="#ff00ff" filter="url(#glow-m)" rx="0.5"/>
+  <!-- forward slash -->
+  <polygon points="23,20 25,20 27,12 25,12" fill="#ff00ff" filter="url(#glow-m)"/>
+</svg>

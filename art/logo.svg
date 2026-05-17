@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 160" width="680" height="160">
+  <defs>
+    <!-- Neon cyan glow filter -->
+    <filter id="neon-cyan" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Neon magenta glow filter -->
+    <filter id="neon-magenta" x="-20%" y="-40%" width="140%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Scanline pattern -->
+    <pattern id="scanlines" x="0" y="0" width="1" height="4" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="1" height="2" fill="rgba(0,0,0,0.15)"/>
+    </pattern>
+    <!-- Neon tube stroke style (cyan) -->
+    <filter id="tube-cyan" x="-5%" y="-30%" width="110%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="alpha-blur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="0.5" result="flood"/>
+      <feComposite in="flood" in2="alpha-blur" operator="in" result="glow-soft"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="alpha-blur2"/>
+      <feFlood flood-color="#00ffff" flood-opacity="0.3" result="flood2"/>
+      <feComposite in="flood2" in2="alpha-blur2" operator="in" result="glow-outer"/>
+      <feMerge>
+        <feMergeNode in="glow-outer"/>
+        <feMergeNode in="glow-soft"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="tube-magenta" x="-5%" y="-30%" width="110%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="alpha-blur"/>
+      <feFlood flood-color="#ff00ff" flood-opacity="0.5" result="flood"/>
+      <feComposite in="flood" in2="alpha-blur" operator="in" result="glow-soft"/>
+      <feGaussianBlur in="SourceAlpha" stdDeviation="6" result="alpha-blur2"/>
+      <feFlood flood-color="#ff00ff" flood-opacity="0.3" result="flood2"/>
+      <feComposite in="flood2" in2="alpha-blur2" operator="in" result="glow-outer"/>
+      <feMerge>
+        <feMergeNode in="glow-outer"/>
+        <feMergeNode in="glow-soft"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="160" fill="#0d0d1a" rx="4"/>
+  <!-- Scanline overlay -->
+  <rect width="680" height="160" fill="url(#scanlines)" rx="4"/>
+
+  <!-- Decorative top border line -->
+  <line x1="20" y1="18" x2="660" y2="18" stroke="#00ffff" stroke-width="1" opacity="0.4"/>
+  <line x1="20" y1="142" x2="660" y2="142" stroke="#ff00ff" stroke-width="1" opacity="0.4"/>
+
+  <!-- Corner brackets (cyan) -->
+  <g stroke="#00ffff" stroke-width="1.5" fill="none" opacity="0.7">
+    <polyline points="20,30 20,22 28,22"/>
+    <polyline points="652,22 660,22 660,30"/>
+    <polyline points="20,130 20,138 28,138"/>
+    <polyline points="652,138 660,138 660,130"/>
+  </g>
+
+  <!-- "NEON://" text — cyan neon tube -->
+  <text
+    x="34"
+    y="108"
+    font-family="'Orbitron', 'VT323', monospace"
+    font-size="68"
+    font-weight="900"
+    letter-spacing="2"
+    fill="#0d0d1a"
+    stroke="#00ffff"
+    stroke-width="1.5"
+    paint-order="stroke"
+    filter="url(#tube-cyan)"
+    style="text-shadow: 0 0 10px #0ff;"
+  >NEON://</text>
+  <!-- Bright inner highlight for neon tube effect -->
+  <text
+    x="34"
+    y="108"
+    font-family="'Orbitron', 'VT323', monospace"
+    font-size="68"
+    font-weight="900"
+    letter-spacing="2"
+    fill="#c8ffff"
+    opacity="0.9"
+  >NEON://</text>
+
+  <!-- "OVERRIDE" text — magenta neon tube -->
+  <text
+    x="370"
+    y="108"
+    font-family="'Orbitron', 'VT323', monospace"
+    font-size="68"
+    font-weight="900"
+    letter-spacing="2"
+    fill="#0d0d1a"
+    stroke="#ff00ff"
+    stroke-width="1.5"
+    paint-order="stroke"
+    filter="url(#tube-magenta)"
+  >OVERRIDE</text>
+  <!-- Bright inner highlight for neon tube effect -->
+  <text
+    x="370"
+    y="108"
+    font-family="'Orbitron', 'VT323', monospace"
+    font-size="68"
+    font-weight="900"
+    letter-spacing="2"
+    fill="#ffc8ff"
+    opacity="0.9"
+  >OVERRIDE</text>
+
+  <!-- Tagline -->
+  <text
+    x="340"
+    y="132"
+    font-family="'JetBrains Mono', 'Courier New', monospace"
+    font-size="10"
+    fill="#f8f8ff"
+    opacity="0.5"
+    text-anchor="middle"
+    letter-spacing="4"
+  >CYBERPUNK INDIE GAME</text>
+</svg>
