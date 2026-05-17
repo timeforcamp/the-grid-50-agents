@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 750" width="900" height="750"
+     style="background:#0d0d1a; font-family: 'Courier New', monospace;">
+
+  <defs>
+    <!-- Neon glow filters -->
+    <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-magenta" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-green" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-yellow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-title" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <!-- Scanline pattern -->
+    <pattern id="scanlines" x="0" y="0" width="2" height="4" patternUnits="userSpaceOnUse">
+      <rect width="2" height="1" fill="#ffffff" opacity="0.015"/>
+    </pattern>
+    <!-- Grid pattern -->
+    <pattern id="citygrid" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#00ffff" stroke-width="0.2" opacity="0.12"/>
+    </pattern>
+    <!-- Building silhouette patterns for districts -->
+    <pattern id="bldg-corp" x="0" y="0" width="18" height="40" patternUnits="userSpaceOnUse">
+      <rect x="2" y="8" width="6" height="32" fill="#00ffff" opacity="0.07"/>
+      <rect x="10" y="0" width="6" height="40" fill="#00ffff" opacity="0.05"/>
+    </pattern>
+    <pattern id="bldg-slum" x="0" y="0" width="12" height="30" patternUnits="userSpaceOnUse">
+      <rect x="1" y="10" width="4" height="20" fill="#ff00ff" opacity="0.06"/>
+      <rect x="7" y="5" width="4" height="25" fill="#ff00ff" opacity="0.04"/>
+    </pattern>
+    <pattern id="water-wave" x="0" y="0" width="40" height="12" patternUnits="userSpaceOnUse">
+      <path d="M 0 6 Q 10 2 20 6 Q 30 10 40 6" fill="none" stroke="#00ffff" stroke-width="0.8" opacity="0.4"/>
+      <path d="M 0 10 Q 10 6 20 10 Q 30 14 40 10" fill="none" stroke="#00ffff" stroke-width="0.5" opacity="0.2"/>
+    </pattern>
+  </defs>
+
+  <!-- ══ BACKGROUND ══ -->
+  <rect width="900" height="750" fill="#0d0d1a"/>
+  <!-- City grid underlay -->
+  <rect width="900" height="750" fill="url(#citygrid)"/>
+  <!-- Scanline overlay -->
+  <rect width="900" height="750" fill="url(#scanlines)"/>
+
+  <!-- ══ TITLE BLOCK ══ -->
+  <!-- Title glow layer -->
+  <text x="450" y="36" text-anchor="middle" font-size="22" font-weight="bold"
+        fill="#00ffff" opacity="0.3" filter="url(#glow-title)"
+        letter-spacing="8">NEO-KOWLOON  2087</text>
+  <!-- Title crisp layer -->
+  <text x="450" y="36" text-anchor="middle" font-size="22" font-weight="bold"
+        fill="#c8ffff" letter-spacing="8">NEO-KOWLOON  2087</text>
+
+  <!-- Subtitle -->
+  <text x="450" y="54" text-anchor="middle" font-size="10" fill="#ff00ff"
+        letter-spacing="4" opacity="0.85" filter="url(#glow-magenta)">⟨ NEON://OVERRIDE · CARTOGRAPHIC ARCHIVE v2.087 ⟩</text>
+
+  <!-- Decorative top border -->
+  <line x1="30" y1="62" x2="870" y2="62" stroke="#00ffff" stroke-width="1" opacity="0.6" filter="url(#glow-cyan)"/>
+  <line x1="30" y1="64" x2="870" y2="64" stroke="#00ffff" stroke-width="0.3" opacity="0.3"/>
+
+  <!-- Compass rose -->
+  <g transform="translate(848,100)">
+    <text x="0" y="-18" text-anchor="middle" font-size="9" fill="#ffff00" filter="url(#glow-yellow)">N</text>
+    <line x1="0" y1="-14" x2="0" y2="14" stroke="#ffff00" stroke-width="1" opacity="0.8"/>
+    <line x1="-14" y1="0" x2="14" y2="0" stroke="#ffff00" stroke-width="1" opacity="0.4"/>
+    <polygon points="0,-14 -4,0 0,4 4,0" fill="#ffff00" opacity="0.9"/>
+    <text x="0" y="24" text-anchor="middle" font-size="7" fill="#ffff00" opacity="0.5">S</text>
+    <text x="-22" y="4" text-anchor="middle" font-size="7" fill="#ffff00" opacity="0.5">W</text>
+    <text x="22" y="4" text-anchor="middle" font-size="7" fill="#ffff00" opacity="0.5">E</text>
+  </g>
+
+  <!-- ══ SMOG CANOPY BAND ══ -->
+  <rect x="30" y="68" width="840" height="18" fill="#1a0033" opacity="0.8"/>
+  <text x="450" y="80" text-anchor="middle" font-size="9" fill="#700070"
+        letter-spacing="6">☁  ☁  S M O G   C A N O P Y   Z - 9  ☁  ☁</text>
+  <line x1="30" y1="86" x2="870" y2="86" stroke="#700070" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!--   DISTRICT I — APEX SPIRE (NW)               -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- District fill -->
+  <rect x="30" y="86" width="400" height="240" fill="url(#bldg-corp)"/>
+  <rect x="30" y="86" width="400" height="240" fill="#00ffff" opacity="0.03"/>
+
+  <!-- District border — hand-drawn feel (slightly irregular path) -->
+  <path d="M 32 88 L 424 89 L 426 92 L 427 322 L 32 322 Z"
+        fill="none" stroke="#00ffff" stroke-width="1.8"
+        stroke-dasharray="200,1" opacity="0.85" filter="url(#glow-cyan)"/>
+  <!-- Dim inner border -->
+  <path d="M 35 91 L 421 92 L 423 95 L 424 319 L 35 319 Z"
+        fill="none" stroke="#007070" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- District label -->
+  <text x="65" y="112" font-size="9" fill="#00ffff" letter-spacing="4"
+        filter="url(#glow-cyan)" opacity="0.9">D I S T R I C T  I</text>
+  <text x="65" y="132" font-size="18" font-weight="bold" fill="#c8ffff"
+        letter-spacing="2" filter="url(#glow-cyan)">APEX SPIRE</text>
+  <line x1="65" y1="136" x2="300" y2="136" stroke="#00ffff" stroke-width="0.6" opacity="0.5"/>
+  <text x="65" y="148" font-size="8" fill="#007070" letter-spacing="1">CORPORATE MEGASTRUCTURE ZONE</text>
+
+  <!-- Tower silhouettes (Corp district) -->
+  <!-- OmniCorp Tower -->
+  <rect x="70" y="160" width="28" height="148" fill="#00ffff" opacity="0.08"/>
+  <rect x="74" y="155" width="20" height="155" fill="#00ffff" opacity="0.06"/>
+  <rect x="78" y="148" width="12" height="162" fill="#c8ffff" opacity="0.05"/>
+  <!-- Tower windows -->
+  <rect x="76" y="162" width="3" height="3" fill="#00ffff" opacity="0.5"/>
+  <rect x="82" y="162" width="3" height="3" fill="#00ffff" opacity="0.3"/>
+  <rect x="76" y="172" width="3" height="3" fill="#00ffff" opacity="0.4"/>
+  <rect x="82" y="172" width="3" height="3" fill="#ffff00" opacity="0.5"/>
+  <rect x="76" y="182" width="3" height="3" fill="#00ffff" opacity="0.3"/>
+  <rect x="82" y="182" width="3" height="3" fill="#00ffff" opacity="0.4"/>
+  <rect x="76" y="192" width="3" height="3" fill="#ff00ff" opacity="0.4"/>
+
+  <!-- Syn-Bank Needle -->
+  <rect x="118" y="178" width="16" height="130" fill="#00ffff" opacity="0.07"/>
+  <rect x="122" y="165" width="8" height="143" fill="#c8ffff" opacity="0.06"/>
+  <polygon points="126,148 120,170 132,170" fill="#00ffff" opacity="0.2"/>
+
+  <!-- HorizonSec HQ -->
+  <rect x="155" y="188" width="34" height="120" fill="#00ffff" opacity="0.07"/>
+  <rect x="160" y="183" width="24" height="125" fill="#00ffff" opacity="0.05"/>
+  <!-- Drone launch pad indicator -->
+  <circle cx="172" cy="186" r="5" fill="none" stroke="#ff00ff" stroke-width="0.8" opacity="0.7"/>
+  <circle cx="172" cy="186" r="2" fill="#ff00ff" opacity="0.5"/>
+
+  <!-- Landmark markers -->
+  <!-- OmniCorp Tower landmark -->
+  <g transform="translate(200, 175)">
+    <polygon points="0,-7 7,7 -7,7" fill="none" stroke="#00ffff" stroke-width="1.2" filter="url(#glow-cyan)" opacity="0.9"/>
+    <text x="10" y="-2" font-size="7.5" fill="#c8ffff">OmniCorp Tower</text>
+    <text x="10" y="8" font-size="6" fill="#007070">Floors 1–240</text>
+  </g>
+
+  <g transform="translate(200, 200)">
+    <polygon points="0,-7 7,7 -7,7" fill="none" stroke="#00ffff" stroke-width="1.2" filter="url(#glow-cyan)" opacity="0.9"/>
+    <text x="10" y="-2" font-size="7.5" fill="#c8ffff">Syn-Bank Needle</text>
+    <text x="10" y="8" font-size="6" fill="#007070">412m · Finance Hub</text>
+  </g>
+
+  <g transform="translate(200, 225)">
+    <polygon points="0,-7 7,7 -7,7" fill="none" stroke="#00ffff" stroke-width="1.2" filter="url(#glow-cyan)" opacity="0.9"/>
+    <text x="10" y="-2" font-size="7.5" fill="#c8ffff">HorizonSec HQ</text>
+    <text x="10" y="8" font-size="6" fill="#007070">CorpSec Command</text>
+  </g>
+
+  <!-- The Zenith (star landmark) -->
+  <g transform="translate(200, 254)">
+    <text x="-6" y="4" font-size="11" fill="#ffff00" filter="url(#glow-yellow)">★</text>
+    <text x="10" y="0" font-size="7.5" fill="#ffff00" filter="url(#glow-yellow)">THE ZENITH</text>
+    <text x="10" y="10" font-size="6" fill="#707000">Elite Club · Floor 199</text>
+  </g>
+
+  <!-- MagLev Hub Alpha (hexagon) -->
+  <g transform="translate(90, 295)">
+    <polygon points="0,-9 8,-5 8,5 0,9 -8,5 -8,-5" fill="none"
+             stroke="#00ffff" stroke-width="1.2" filter="url(#glow-cyan)" opacity="0.8"/>
+    <text x="0" y="3" text-anchor="middle" font-size="6" fill="#00ffff">⬡</text>
+    <text x="14" y="-2" font-size="7" fill="#c8ffff">MagLev Hub·ALPHA</text>
+    <text x="14" y="8" font-size="6" fill="#007070">Uptown Express</text>
+  </g>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!--   DISTRICT II — THE LABYRINTH (NE)           -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- District fill -->
+  <rect x="434" y="86" width="436" height="240" fill="url(#bldg-slum)"/>
+  <rect x="434" y="86" width="436" height="240" fill="#ff00ff" opacity="0.03"/>
+
+  <!-- District border -->
+  <path d="M 436 88 L 868 89 L 869 322 L 434 322 Z"
+        fill="none" stroke="#ff00ff" stroke-width="1.8"
+        stroke-dasharray="200,1" opacity="0.85" filter="url(#glow-magenta)"/>
+  <path d="M 439 91 L 865 92 L 866 319 L 437 319 Z"
+        fill="none" stroke="#700070" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Divider between D1 and D2 — checkpoint wall -->
+  <line x1="430" y1="86" x2="430" y2="326" stroke="#ffff00" stroke-width="2"
+        stroke-dasharray="8,4" opacity="0.7" filter="url(#glow-yellow)"/>
+  <rect x="420" y="195" width="20" height="22" fill="#1a0033" stroke="#ffff00" stroke-width="1" opacity="0.9"/>
+  <text x="430" y="209" text-anchor="middle" font-size="6" fill="#ffff00" filter="url(#glow-yellow)">WALL</text>
+  <text x="430" y="215" text-anchor="middle" font-size="5" fill="#ffff00">TIER-3</text>
+
+  <!-- District label -->
+  <text x="450" y="112" font-size="9" fill="#ff00ff" letter-spacing="4"
+        filter="url(#glow-magenta)" opacity="0.9">D I S T R I C T  I I</text>
+  <text x="450" y="132" font-size="16" font-weight="bold" fill="#ffc8ff"
+        letter-spacing="1" filter="url(#glow-magenta)">THE LABYRINTH</text>
+  <line x1="450" y1="136" x2="750" y2="136" stroke="#ff00ff" stroke-width="0.6" opacity="0.5"/>
+  <text x="450" y="148" font-size="8" fill="#700070" letter-spacing="1">DENSE RESIDENTIAL · BLACK MARKET CORE</text>
+
+  <!-- Dense building texture for Labyrinth -->
+  <rect x="440" y="155" width="12" height="80" fill="#ff00ff" opacity="0.07"/>
+  <rect x="455" y="165" width="10" height="70" fill="#ff00ff" opacity="0.06"/>
+  <rect x="468" y="158" width="14" height="77" fill="#ff00ff" opacity="0.05"/>
+  <rect x="485" y="170" width="10" height="65" fill="#ff00ff" opacity="0.07"/>
+  <rect x="497" y="160" width="12" height="75" fill="#ff00ff" opacity="0.06"/>
+
+  <!-- Landmarks D2 -->
+  <g transform="translate(560, 170)">
+    <circle r="5" fill="none" stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#ffc8ff">Ghost Market</text>
+    <text x="10" y="14" font-size="6" fill="#700070">No-ID Exchange</text>
+  </g>
+
+  <g transform="translate(560, 197)">
+    <circle r="5" fill="none" stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#ffc8ff">Byte Bazaar</text>
+    <text x="10" y="14" font-size="6" fill="#700070">Black-ICE · Modded Chips</text>
+  </g>
+
+  <g transform="translate(560, 224)">
+    <circle r="5" fill="none" stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#ffc8ff">Red Thread Alley</text>
+    <text x="10" y="14" font-size="6" fill="#700070">Data brokers · Red-light</text>
+  </g>
+
+  <g transform="translate(560, 251)">
+    <circle r="5" fill="none" stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#ffc8ff">The Lantern Node</text>
+    <text x="10" y="14" font-size="6" fill="#700070">Anonymous ICE café</text>
+  </g>
+
+  <!-- Mama Ko's star landmark -->
+  <g transform="translate(560, 280)">
+    <text x="-6" y="4" font-size="11" fill="#ffff00" filter="url(#glow-yellow)">★</text>
+    <text x="10" y="0" font-size="7.5" fill="#ffff00" filter="url(#glow-yellow)">Mama Ko's Noodle Shack</text>
+    <text x="10" y="10" font-size="6" fill="#707000">Vex-7 safe house · 3F-4F</text>
+  </g>
+
+  <!-- MagLev Hub Beta -->
+  <g transform="translate(750, 295)">
+    <polygon points="0,-9 8,-5 8,5 0,9 -8,5 -8,-5" fill="none"
+             stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.8"/>
+    <text x="0" y="3" text-anchor="middle" font-size="6" fill="#ff00ff">⬡</text>
+    <text x="14" y="-2" font-size="7" fill="#ffc8ff">MagLev Hub·BETA</text>
+    <text x="14" y="8" font-size="6" fill="#700070">Market Line</text>
+  </g>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!--   DISTRICT III — SILICON DOCKS (South)       -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- District fill -->
+  <rect x="30" y="330" width="840" height="175" fill="#00ff88" opacity="0.02"/>
+
+  <!-- District border -->
+  <path d="M 32 332 L 868 332 L 868 502 L 32 502 Z"
+        fill="none" stroke="#00ff88" stroke-width="1.8"
+        stroke-dasharray="200,1" opacity="0.8" filter="url(#glow-green)"/>
+  <path d="M 35 335 L 865 335 L 865 499 L 35 499 Z"
+        fill="none" stroke="#007040" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Horizontal divider from districts I/II -->
+  <line x1="30" y1="328" x2="870" y2="328" stroke="#007040" stroke-width="1"
+        stroke-dasharray="6,3" opacity="0.6"/>
+
+  <!-- District label -->
+  <text x="450" y="354" text-anchor="middle" font-size="9" fill="#00ff88" letter-spacing="4"
+        filter="url(#glow-green)" opacity="0.9">D I S T R I C T  I I I</text>
+  <text x="450" y="374" text-anchor="middle" font-size="18" font-weight="bold" fill="#c8ffe0"
+        letter-spacing="2" filter="url(#glow-green)">SILICON DOCKS</text>
+  <line x1="150" y1="378" x2="750" y2="378" stroke="#00ff88" stroke-width="0.6" opacity="0.5"/>
+  <text x="450" y="390" text-anchor="middle" font-size="8" fill="#007040" letter-spacing="1">INDUSTRIAL WATERFRONT · SMUGGLER TERRITORY</text>
+
+  <!-- Dock structures -->
+  <!-- Pier lines -->
+  <line x1="80" y1="440" x2="80" y2="500" stroke="#00ff88" stroke-width="1.5" opacity="0.5"/>
+  <line x1="140" y1="430" x2="140" y2="500" stroke="#00ff88" stroke-width="1.5" opacity="0.4"/>
+  <line x1="220" y1="445" x2="220" y2="500" stroke="#00ff88" stroke-width="1" opacity="0.3"/>
+  <line x1="680" y1="435" x2="680" y2="500" stroke="#00ff88" stroke-width="1.5" opacity="0.5"/>
+  <line x1="760" y1="440" x2="760" y2="500" stroke="#00ff88" stroke-width="1.5" opacity="0.4"/>
+  <line x1="820" y1="445" x2="820" y2="500" stroke="#00ff88" stroke-width="1" opacity="0.3"/>
+
+  <!-- Ship hulls -->
+  <ellipse cx="110" cy="498" rx="45" ry="7" fill="#007040" opacity="0.5" stroke="#00ff88" stroke-width="0.6"/>
+  <ellipse cx="740" cy="498" rx="55" ry="7" fill="#007040" opacity="0.5" stroke="#00ff88" stroke-width="0.6"/>
+
+  <!-- Landmark columns D3 -->
+  <g transform="translate(80, 410)">
+    <circle r="5" fill="none" stroke="#00ff88" stroke-width="1.2" filter="url(#glow-green)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#c8ffe0">Hex Wharf</text>
+    <text x="10" y="14" font-size="6" fill="#007040">Contraband offload · no cams</text>
+  </g>
+
+  <g transform="translate(280, 410)">
+    <circle r="5" fill="none" stroke="#00ff88" stroke-width="1.2" filter="url(#glow-green)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#c8ffe0">Data Port 7</text>
+    <text x="10" y="14" font-size="6" fill="#007040">OmniCorp freight terminal</text>
+  </g>
+
+  <g transform="translate(480" y="0)">
+  </g>
+
+  <g transform="translate(480, 410)">
+    <circle r="5" fill="none" stroke="#00ff88" stroke-width="1.2" filter="url(#glow-green)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#c8ffe0">Rusted Quay</text>
+    <text x="10" y="14" font-size="6" fill="#007040">AI ship graveyard · inhabited</text>
+  </g>
+
+  <g transform="translate(680, 410)">
+    <circle r="5" fill="none" stroke="#00ff88" stroke-width="1.2" filter="url(#glow-green)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#c8ffe0">Shard Yards</text>
+    <text x="10" y="14" font-size="6" fill="#007040">Memory chip factory</text>
+  </g>
+
+  <!-- The Iron Tide star -->
+  <g transform="translate(175, 455)">
+    <text x="-6" y="4" font-size="11" fill="#ffff00" filter="url(#glow-yellow)">★</text>
+    <text x="10" y="0" font-size="7.5" fill="#ffff00" filter="url(#glow-yellow)">The Iron Tide</text>
+    <text x="10" y="10" font-size="6" fill="#707000">Dockworker bar · neutral ground</text>
+  </g>
+
+  <!-- Sub-Deck Zero -->
+  <g transform="translate(430, 455)">
+    <polygon points="0,-9 8,-5 8,5 0,9 -8,5 -8,-5" fill="none"
+             stroke="#00ff88" stroke-width="1.2" filter="url(#glow-green)" opacity="0.8"/>
+    <text x="0" y="3" text-anchor="middle" font-size="6" fill="#00ff88">⬡</text>
+    <text x="14" y="-2" font-size="7" fill="#c8ffe0">Sub-Deck Zero</text>
+    <text x="14" y="8" font-size="6" fill="#007040">MagLev hub · Undercroft access</text>
+  </g>
+
+  <!-- ══ NEON HARBOR (water band) ══ -->
+  <rect x="30" y="502" width="840" height="34" fill="url(#water-wave)"/>
+  <rect x="30" y="502" width="840" height="34" fill="#00ffff" opacity="0.04"/>
+  <line x1="30" y1="502" x2="870" y2="502" stroke="#00ffff" stroke-width="1" opacity="0.6" filter="url(#glow-cyan)"/>
+  <line x1="30" y1="536" x2="870" y2="536" stroke="#007070" stroke-width="0.5" opacity="0.4"/>
+  <text x="450" y="523" text-anchor="middle" font-size="9" fill="#00ffff"
+        letter-spacing="6" filter="url(#glow-cyan)" opacity="0.7">≋  N E O N   H A R B O R  ·  T O X I C  ≋</text>
+
+  <!-- ══ ACCESS SHAFT GRID ══ -->
+  <rect x="30" y="536" width="840" height="18" fill="#1a0033" opacity="0.9"/>
+  <!-- Access shaft indicators -->
+  <text x="450" y="548" text-anchor="middle" font-size="8" fill="#700070"
+        letter-spacing="4">▼  ▼  ▼  ACCESS SHAFT GRID — RESTRICTED  ▼  ▼  ▼</text>
+  <!-- Individual access shaft markers -->
+  <g opacity="0.7">
+    <rect x="90" y="537" width="8" height="17" fill="#ff00ff" opacity="0.2"/>
+    <rect x="200" y="537" width="8" height="17" fill="#ff00ff" opacity="0.2"/>
+    <rect x="340" y="537" width="8" height="17" fill="#ff00ff" opacity="0.2"/>
+    <rect x="450" y="537" width="8" height="17" fill="#ff00ff" opacity="0.25"/>
+    <rect x="580" y="537" width="8" height="17" fill="#ff00ff" opacity="0.2"/>
+    <rect x="700" y="537" width="8" height="17" fill="#ff00ff" opacity="0.2"/>
+    <rect x="820" y="537" width="8" height="17" fill="#ff00ff" opacity="0.2"/>
+  </g>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!--   DISTRICT IV — THE UNDERCROFT (Below)       -->
+  <!-- ══════════════════════════════════════════════ -->
+
+  <!-- District fill -->
+  <rect x="30" y="554" width="840" height="168" fill="#ff00ff" opacity="0.02"/>
+  <rect x="30" y="554" width="840" height="168" fill="#1a0033" opacity="0.5"/>
+
+  <!-- District border -->
+  <path d="M 32 556 L 868 556 L 868 720 L 32 720 Z"
+        fill="none" stroke="#ff00ff" stroke-width="1.8"
+        stroke-dasharray="200,1" opacity="0.75" filter="url(#glow-magenta)"/>
+  <path d="M 35 559 L 865 559 L 865 717 L 35 717 Z"
+        fill="none" stroke="#700070" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- District label -->
+  <text x="450" y="578" text-anchor="middle" font-size="9" fill="#ff00ff" letter-spacing="4"
+        filter="url(#glow-magenta)" opacity="0.9">D I S T R I C T  I V</text>
+  <text x="450" y="598" text-anchor="middle" font-size="18" font-weight="bold" fill="#ffc8ff"
+        letter-spacing="2" filter="url(#glow-magenta)">THE UNDERCROFT</text>
+  <text x="450" y="612" text-anchor="middle" font-size="8" fill="#700070"
+        letter-spacing="1">DEPTH: -80m TO -240m · BELOW CITY SUBFLOOR</text>
+  <line x1="150" y1="616" x2="750" y2="616" stroke="#ff00ff" stroke-width="0.6" opacity="0.5"/>
+
+  <!-- Tunnel lines (Rat-Rail) -->
+  <path d="M 40 670 Q 200 655 400 670 Q 600 685 860 670"
+        fill="none" stroke="#ff00ff" stroke-width="1" stroke-dasharray="8,4"
+        opacity="0.4" filter="url(#glow-magenta)"/>
+  <path d="M 40 690 Q 250 680 450 690 Q 650 700 860 688"
+        fill="none" stroke="#ff00ff" stroke-width="0.8" stroke-dasharray="8,4"
+        opacity="0.3"/>
+
+  <!-- Landmark columns D4 -->
+  <g transform="translate(80, 635)">
+    <circle r="5" fill="none" stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#ffc8ff">Zero Market</text>
+    <text x="10" y="14" font-size="6" fill="#700070">No-ID trading floor</text>
+  </g>
+
+  <g transform="translate(280, 635)">
+    <circle r="5" fill="none" stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#ffc8ff">The Cage</text>
+    <text x="10" y="14" font-size="6" fill="#700070">Underground arena · high stakes</text>
+  </g>
+
+  <g transform="translate(500, 635)">
+    <circle r="5" fill="none" stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#ffc8ff">Void Tunnels</text>
+    <text x="10" y="14" font-size="6" fill="#700070">Forgotten metro · Rat-Rail</text>
+  </g>
+
+  <g transform="translate(700, 635)">
+    <circle r="5" fill="none" stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.9"/>
+    <text x="10" y="4" font-size="7.5" fill="#ffc8ff">The Ossuary</text>
+    <text x="10" y="14" font-size="6" fill="#700070">Data-ghost shrine</text>
+  </g>
+
+  <!-- NODE://ROOT star landmark -->
+  <g transform="translate(200, 680)">
+    <text x="-8" y="5" font-size="14" fill="#ffff00" filter="url(#glow-yellow)">★</text>
+    <text x="12" y="1" font-size="8" font-weight="bold" fill="#ffff00" filter="url(#glow-yellow)">NODE://ROOT</text>
+    <text x="12" y="12" font-size="6" fill="#707000">Pre-corp internet backbone · holy ground</text>
+  </g>
+
+  <!-- Resistance HQ star landmark -->
+  <g transform="translate(530, 680)">
+    <text x="-8" y="5" font-size="14" fill="#ffff00" filter="url(#glow-yellow)">★</text>
+    <text x="12" y="1" font-size="8" font-weight="bold" fill="#ffff00" filter="url(#glow-yellow)">RESISTANCE HQ</text>
+    <text x="12" y="12" font-size="6" fill="#707000">Tunnel 9-C · Overriders' base</text>
+  </g>
+
+  <!-- Rat-Rail hex marker -->
+  <g transform="translate(740, 680)">
+    <polygon points="0,-9 8,-5 8,5 0,9 -8,5 -8,-5" fill="none"
+             stroke="#ff00ff" stroke-width="1.2" filter="url(#glow-magenta)" opacity="0.8"/>
+    <text x="0" y="3" text-anchor="middle" font-size="6" fill="#ff00ff">⬡</text>
+    <text x="14" y="-2" font-size="7" fill="#ffc8ff">Rat-Rail Lines</text>
+    <text x="14" y="8" font-size="6" fill="#700070">No corp oversight</text>
+  </g>
+
+  <!-- ══ MAGLEV TRANSIT LINES ══ -->
+  <!-- Surface MagLev connecting Alpha → Beta → Sub-Deck Zero -->
+  <path d="M 90 306 L 430 306 L 450 306 L 752 306"
+        fill="none" stroke="#00ffff" stroke-width="1.5"
+        stroke-dasharray="12,4" opacity="0.55" filter="url(#glow-cyan)"/>
+  <!-- MagLev label -->
+  <text x="450" y="318" text-anchor="middle" font-size="6" fill="#007070"
+        letter-spacing="2">— — MAGLEV UPTOWN/MARKET EXPRESS — —</text>
+
+  <!-- ══ BOTTOM BORDER ══ -->
+  <line x1="30" y1="722" x2="870" y2="722" stroke="#00ffff" stroke-width="1" opacity="0.6" filter="url(#glow-cyan)"/>
+  <line x1="30" y1="724" x2="870" y2="724" stroke="#00ffff" stroke-width="0.3" opacity="0.3"/>
+
+  <!-- ══ LEGEND BOX ══ -->
+  <rect x="30" y="728" width="840" height="18" fill="#1a0033" opacity="0.8"/>
+  <text x="50" y="741" font-size="7" fill="#007070" letter-spacing="1">▲ TOWER</text>
+  <text x="110" y="741" font-size="7" fill="#007070" letter-spacing="1">★ LANDMARK</text>
+  <text x="200" y="741" font-size="7" fill="#007070" letter-spacing="1">◈ LOCATION</text>
+  <text x="285" y="741" font-size="7" fill="#007070" letter-spacing="1">⬡ TRANSIT HUB</text>
+  <text x="385" y="741" font-size="7" fill="#007070" letter-spacing="1">≋ TOXIC WATER</text>
+  <text x="470" y="741" font-size="7" fill="#007070" letter-spacing="1">▼ SHAFT DOWN</text>
+  <text x="550" y="741" font-size="7" fill="#700070" letter-spacing="1">- - MAGLEV LINE</text>
+  <text x="650" y="741" font-size="6" fill="#404060" letter-spacing="1" font-style="italic">OVERRIDER NETWORK INTEL · NODE 7K · 2087-03-14</text>
+
+  <!-- Corner decorations -->
+  <text x="32" y="80" font-size="10" fill="#00ffff" opacity="0.4">╔</text>
+  <text x="858" y="80" font-size="10" fill="#00ffff" opacity="0.4">╗</text>
+  <text x="32" y="748" font-size="10" fill="#00ffff" opacity="0.4">╚</text>
+  <text x="858" y="748" font-size="10" fill="#00ffff" opacity="0.4">╝</text>
+
+</svg>
