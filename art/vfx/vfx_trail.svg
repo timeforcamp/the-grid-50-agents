@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  VFX: vfx_trail.svg
+  Type: Cyan motion trail strip
+  Frame size: 256x32px | Single strip (attach behind moving entity)
+  Usage: stretch or tile horizontally behind a moving object
+         Orient horizontally; the "head" (bright end) is at x=0 (right side of strip = tail fade)
+         Alpha fades left→right (head=opaque, tail=transparent)
+  Color: Cyan #00FFFF / #00EEFF with white hot tip
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 32" width="256" height="32">
+  <defs>
+    <linearGradient id="trail-main" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="8%"   stop-color="#00ffff" stop-opacity="0.95"/>
+      <stop offset="30%"  stop-color="#00eeff" stop-opacity="0.7"/>
+      <stop offset="60%"  stop-color="#0088aa" stop-opacity="0.4"/>
+      <stop offset="85%"  stop-color="#003344" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#001122" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="trail-core" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="10%"  stop-color="#ccffff" stop-opacity="0.9"/>
+      <stop offset="40%"  stop-color="#00ccdd" stop-opacity="0.5"/>
+      <stop offset="70%"  stop-color="#006677" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#001122" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="trail-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00ffff" stop-opacity="0.6"/>
+      <stop offset="20%"  stop-color="#00ffff" stop-opacity="0.3"/>
+      <stop offset="60%"  stop-color="#004455" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="trail-spark1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#ffffff" stop-opacity="0.8"/>
+      <stop offset="30%" stop-color="#00ffff" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="trail-blur">
+      <feGaussianBlur stdDeviation="2 1"/>
+    </filter>
+    <filter id="tip-glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Outer glow layer (widest, most diffuse) -->
+  <rect x="0" y="6" width="180" height="20" rx="10" ry="10"
+        fill="url(#trail-glow)" filter="url(#trail-blur)"/>
+
+  <!-- Main trail body -->
+  <rect x="0" y="9" width="220" height="14" rx="7" ry="7"
+        fill="url(#trail-main)"/>
+
+  <!-- Core hot line (narrow, bright center) -->
+  <rect x="0" y="14" width="160" height="4" rx="2" ry="2"
+        fill="url(#trail-core)"/>
+
+  <!-- Turbo hotspot at head tip -->
+  <g filter="url(#tip-glow)">
+    <circle cx="4" cy="16" r="6" fill="#ffffff" opacity="0.9"/>
+    <circle cx="4" cy="16" r="3" fill="#00ffff"/>
+  </g>
+
+  <!-- Sub-trail filament 1 (slightly above center) -->
+  <rect x="0" y="11" width="100" height="1.5" rx="0.75"
+        fill="url(#trail-spark1)" opacity="0.7"/>
+
+  <!-- Sub-trail filament 2 (slightly below center) -->
+  <rect x="0" y="20" width="80" height="1" rx="0.5"
+        fill="url(#trail-spark1)" opacity="0.5"/>
+
+  <!-- Scatter particles along trail -->
+  <!-- Each particle: small bright dot fading further back -->
+  <circle cx="18"  cy="13" r="1.5" fill="#ffffff"  opacity="0.7"/>
+  <circle cx="35"  cy="19" r="1"   fill="#00ffff"  opacity="0.65"/>
+  <circle cx="52"  cy="11" r="1.5" fill="#ccffff"  opacity="0.55"/>
+  <circle cx="68"  cy="20" r="1"   fill="#00eeff"  opacity="0.5"/>
+  <circle cx="82"  cy="14" r="1"   fill="#00ffff"  opacity="0.45"/>
+  <circle cx="96"  cy="18" r="1"   fill="#00ccdd"  opacity="0.4"/>
+  <circle cx="112" cy="12" r="0.8" fill="#00eeff"  opacity="0.3"/>
+  <circle cx="128" cy="21" r="0.8" fill="#009ab0"  opacity="0.25"/>
+  <circle cx="144" cy="15" r="0.8" fill="#00ccdd"  opacity="0.2"/>
+  <circle cx="160" cy="19" r="0.6" fill="#006677"  opacity="0.15"/>
+  <circle cx="175" cy="16" r="0.6" fill="#004455"  opacity="0.1"/>
+
+  <!-- Thin edge highlight lines to simulate speed lines -->
+  <line x1="0" y1="9"  x2="90"  y2="9"  stroke="#88ffff" stroke-width="0.5" opacity="0.5"/>
+  <line x1="0" y1="23" x2="70"  y2="23" stroke="#44aaaa" stroke-width="0.5" opacity="0.4"/>
+</svg>
