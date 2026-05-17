@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEON://OVERRIDE</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%; height: 100%;
+      background: #000;
+      overflow: hidden;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* Game canvas wrapper — centres the 800×400 canvas, letterboxed */
+    #game-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    #game-canvas {
+      display: block;
+      /* Scale canvas to fit viewport while preserving 2:1 ratio */
+      max-width: 100vw;
+      max-height: 100vh;
+      width: auto;
+      height: auto;
+      /* pixel-perfect scaling */
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    /* Tiny loading fallback shown while scripts parse */
+    #loading-msg {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      color: #00ffe7;
+      font-size: 1.1rem;
+      letter-spacing: 0.2em;
+      z-index: 8888;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loading message (hidden once boot starts) -->
+  <div id="loading-msg">LOADING NEON://OVERRIDE&nbsp;<span id="loading-dots">...</span></div>
+
+  <!-- Game canvas -->
+  <div id="game-wrap">
+    <canvas id="game-canvas" width="800" height="400"></canvas>
+  </div>
+
+  <!--
+    Load order:
+      1. boot.js   — terminal boot sequence (sets window.gameState = 'boot')
+      2. fx.js     — post-processing effects (PostFX)
+      3. hud.js    — HUD / UI overlay
+      4. hack.js   — hack mechanic helpers
+      5. level.js  — level / world helpers
+      6. main.js   — game loop & state machine (looks for window.gameState)
+  -->
+  <script src="boot.js"></script>
+  <script src="fx.js"></script>
+  <script src="hud.js"></script>
+  <script src="hack.js"></script>
+  <script src="level.js"></script>
+
+  <script>
+    /* ── Kick off boot sequence, then hand off to the game ── */
+    (function () {
+      // Hide the bare loading message once DOM is ready
+      const loadingMsg = document.getElementById('loading-msg');
+      if (loadingMsg) loadingMsg.style.opacity = '0';
+
+      // Dots animation (cosmetic, before boot overlay appears)
+      let dotCount = 0;
+      const dotsEl = document.getElementById('loading-dots');
+      const dotsTimer = setInterval(function () {
+        if (!dotsEl) return;
+        dotCount = (dotCount + 1) % 4;
+        dotsEl.textContent = '.'.repeat(dotCount || 1);
+      }, 300);
+
+      function startGame() {
+        clearInterval(dotsTimer);
+        if (loadingMsg && loadingMsg.parentNode) {
+          loadingMsg.parentNode.removeChild(loadingMsg);
+        }
+
+        // Transition game state machine from 'boot' → 'title'
+        window.gameState = 'title';
+
+        // If main.js exposes an init / enterState hook, call it
+        if (typeof window.Game !== 'undefined') {
+          if (typeof window.Game.init === 'function') window.Game.init();
+          else if (typeof window.Game.enterState === 'function') window.Game.enterState('title');
+          else if (typeof window.Game.start === 'function') window.Game.start();
+        } else if (typeof window.startGame === 'function') {
+          window.startGame();
+        } else if (typeof window.initGame === 'function') {
+          window.initGame();
+        }
+        // If main.js auto-starts on load it will read window.gameState = 'title'
+      }
+
+      // Dynamically load main.js (the game loop) AFTER boot,
+      // so it can read window.gameState reliably.
+      function loadMainJS(cb) {
+        var s = document.createElement('script');
+        s.src = 'main.js';
+        s.onload  = cb;
+        s.onerror = cb; // proceed even if missing (dev mode)
+        document.body.appendChild(s);
+      }
+
+      // Start boot animation → load main.js → hand off
+      if (typeof BootSequence !== 'undefined') {
+        BootSequence.start(function () {
+          loadMainJS(startGame);
+        });
+      } else {
+        // Fallback: boot.js failed to load — go straight to game
+        loadMainJS(startGame);
+      }
+    }());
+  </script>
+
+</body>
+</html>
